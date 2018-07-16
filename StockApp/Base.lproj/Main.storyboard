@@ -10,33 +10,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Second-->
+        <!--Compare-->
         <scene sceneID="TOM-6P-qKk">
             <objects>
                 <viewController id="TBR-67-ymq" customClass="CompareViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uL9-vG-R3b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="yZ5-ZZ-pab"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Second" id="sP7-06-IrM"/>
+                    <navigationItem key="navigationItem" title="Compare" id="sP7-06-IrM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lE-E8-3Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.8" y="347.67616191904051"/>
         </scene>
-        <!--First-->
+        <!--Stocks-->
         <scene sceneID="wSz-Qs-49v">
             <objects>
                 <viewController id="k15-pn-CVa" customClass="MainViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZs-KH-Jg1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Srl-IX-XPi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="First" id="2J5-zh-ft4"/>
+                    <navigationItem key="navigationItem" title="Stocks" id="2J5-zh-ft4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LaC-g3-AbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,6 +68,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eva-mU-U8n">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.10484462614976472" green="0.50372065894042195" blue="0.84927046298980713" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -88,6 +88,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hej-vU-5Fu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1048446261" green="0.50372065889999995" blue="0.84927046299999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
