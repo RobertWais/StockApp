@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C120FD4C720009FCA8 /* CompareViewController.swift */; };
 		0A1491C520FD50FD0009FCA8 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */; };
+		0A1491C720FD60B40009FCA8 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */; };
 		2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77D20FD322200D89C71 /* AppDelegate.swift */; };
 		2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77F20FD322200D89C71 /* MainViewController.swift */; };
 		2E2EA78320FD322200D89C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2EA78120FD322200D89C71 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		0A1491C120FD4C720009FCA8 /* CompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewController.swift; sourceTree = "<group>"; };
 		0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		2E2EA77A20FD322200D89C71 /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2EA77D20FD322200D89C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E2EA77F20FD322200D89C71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			children = (
 				2E2EA77F20FD322200D89C71 /* MainViewController.swift */,
 				0A1491C120FD4C720009FCA8 /* CompareViewController.swift */,
+				0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */,
+				0A1491C720FD60B40009FCA8 /* PortfolioViewController.swift in Sources */,
 				2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */,
 				0A1491C520FD50FD0009FCA8 /* StockTableViewCell.swift in Sources */,
 				2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */,

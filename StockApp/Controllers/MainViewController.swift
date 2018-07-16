@@ -42,6 +42,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockTableViewCell") as! StockTableViewCell
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = "Apple"
         cell.detailTextLabel?.text = "$ 1 mil"
         return cell
