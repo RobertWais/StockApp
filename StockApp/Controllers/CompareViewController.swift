@@ -12,6 +12,11 @@ class CompareViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.largeTitleDisplayMode = .automatic
+            navigationController?.navigationBar.barStyle = .black
+        }
     }
 
     override func didReceiveMemoryWarning() {
