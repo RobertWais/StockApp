@@ -13,7 +13,7 @@
         <!--Second-->
         <scene sceneID="TOM-6P-qKk">
             <objects>
-                <viewController id="TBR-67-ymq" sceneMemberID="viewController">
+                <viewController id="TBR-67-ymq" customClass="CompareViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uL9-vG-R3b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
         <!--First-->
         <scene sceneID="wSz-Qs-49v">
             <objects>
-                <viewController id="k15-pn-CVa" sceneMemberID="viewController">
+                <viewController id="k15-pn-CVa" customClass="MainViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZs-KH-Jg1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
