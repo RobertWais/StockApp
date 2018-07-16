@@ -21,6 +21,57 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-zM-Wnb">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SegmentedControlTableViewCell" id="sPN-Nc-VXv" customClass="SegmentedControlTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sPN-Nc-VXv" id="rpR-3v-fep">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cpb-7g-sVQ">
+                                                    <rect key="frame" x="5" y="8" width="365" height="29"/>
+                                                    <segments>
+                                                        <segment title="Week"/>
+                                                        <segment title="Month"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Cpb-7g-sVQ" firstAttribute="leading" secondItem="rpR-3v-fep" secondAttribute="leading" constant="5" id="5Vx-1p-g77"/>
+                                                <constraint firstItem="Cpb-7g-sVQ" firstAttribute="centerY" secondItem="rpR-3v-fep" secondAttribute="centerY" id="8wb-lb-6f7"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cpb-7g-sVQ" secondAttribute="trailing" constant="5" id="Ipb-bc-xtM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="297" id="aQq-Hq-o1K" customClass="GraphTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="297"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQq-Hq-o1K" id="MkR-I3-iOc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="296.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-stock-chart" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-Ns-X9P">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="296.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LLR-Ns-X9P" secondAttribute="trailing" id="5Hy-Yw-lao"/>
+                                                <constraint firstItem="LLR-Ns-X9P" firstAttribute="leading" secondItem="MkR-I3-iOc" secondAttribute="leading" id="fbJ-bh-aEC"/>
+                                                <constraint firstAttribute="bottom" secondItem="LLR-Ns-X9P" secondAttribute="bottom" id="pTe-ed-vp2"/>
+                                                <constraint firstItem="LLR-Ns-X9P" firstAttribute="top" secondItem="MkR-I3-iOc" secondAttribute="top" id="svS-GI-15P"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" id="ipa-g1-u1T" customClass="NewsTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="369" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipa-g1-u1T" id="qWf-3B-hjH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,6 +84,9 @@
                         <viewLayoutGuide key="safeArea" id="yZ5-ZZ-pab"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compare" id="sP7-06-IrM"/>
+                    <connections>
+                        <outlet property="tableView" destination="CU2-zM-Wnb" id="YyM-MC-YaZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lE-E8-3Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,4 +245,7 @@
             <point key="canvasLocation" x="838" y="1037"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="apple-stock-chart" width="1635" height="503"/>
+    </resources>
 </document>

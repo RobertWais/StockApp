@@ -21,12 +21,10 @@ class MainViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
         }
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -39,7 +37,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
+    //    :MARK - STATIC DATA -> API DATA
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockTableViewCell") as! StockTableViewCell
         cell.accessoryType = .disclosureIndicator
@@ -56,8 +54,6 @@ extension MainViewController: UITableViewDataSource {
         }
     }
 }
-
-
 extension MainViewController: UITableViewDelegate {
     
 }
