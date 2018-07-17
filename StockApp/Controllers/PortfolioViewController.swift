@@ -51,22 +51,29 @@ extension PortfolioViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell
         if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell
+            
             cell.stockTitle.text = "AMZN"
             cell.stockPrice.text = "price"
             cell.stockAmount.text = "amount"
             cell.stockValue.text = "value"
-        } else {
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell
             cell.stockTitle.text = "AAPL"
             cell.stockPrice.text = "price"
             cell.stockAmount.text = "amount"
             cell.stockValue.text = "value"
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioGraphTableViewCell") as! PortfolioGraphTableViewCell
+            cell.graphImageView.image = UIImage(named: "portfolio_test_graph")
+            return cell
         }
-        return cell
     }
 }

@@ -14,6 +14,7 @@
 		0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */; };
 		0A1491CD20FD66360009FCA8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CC20FD66360009FCA8 /* NewsTableViewCell.swift */; };
 		0ADCBD9020FDAC6600A60948 /* PortfolioStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */; };
+		0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */; };
 		2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77D20FD322200D89C71 /* AppDelegate.swift */; };
 		2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77F20FD322200D89C71 /* MainViewController.swift */; };
 		2E2EA78320FD322200D89C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2EA78120FD322200D89C71 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
 		0A1491CC20FD66360009FCA8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioStockTableViewCell.swift; sourceTree = "<group>"; };
+		0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGraphTableViewCell.swift; sourceTree = "<group>"; };
 		2E2EA77A20FD322200D89C71 /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2EA77D20FD322200D89C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E2EA77F20FD322200D89C71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		2E2EA77120FD322200D89C71 = {
 			isa = PBXGroup;
 			children = (
+				0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */,
 				0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */,
 				0A1491CC20FD66360009FCA8 /* NewsTableViewCell.swift */,
 				2E2EA77C20FD322200D89C71 /* StockApp */,
@@ -168,6 +171,7 @@
 				0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */,
 				0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */,
 				0A1491CD20FD66360009FCA8 /* NewsTableViewCell.swift in Sources */,
+				0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */,
 				0A1491C720FD60B40009FCA8 /* PortfolioViewController.swift in Sources */,
 				2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */,
 				0A1491C520FD50FD0009FCA8 /* StockTableViewCell.swift in Sources */,
