@@ -37,7 +37,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    //    TODO: STATIC DATA -> API DATA
+    //    TODO: STATIC DATA -> API DATA, Switch statement
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockTableViewCell") as! StockTableViewCell
         cell.accessoryType = .disclosureIndicator

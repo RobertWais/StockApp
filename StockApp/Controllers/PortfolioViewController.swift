@@ -54,7 +54,7 @@ extension PortfolioViewController: UITableViewDataSource {
         return 3
     }
     
-    //    TODO: DATA FROM API
+    //    TODO: DATA FROM API, Switch statement
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell

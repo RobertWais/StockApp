@@ -61,12 +61,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		2E2EA77120FD322200D89C71 = {
+		0ADCBD9320FDB93A00A60948 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */,
 				0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */,
 				0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */,
 				0A1491CC20FD66360009FCA8 /* NewsTableViewCell.swift */,
+				0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */,
+				0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		2E2EA77120FD322200D89C71 = {
+			isa = PBXGroup;
+			children = (
+				0ADCBD9320FDB93A00A60948 /* TableViewCells */,
 				2E2EA77C20FD322200D89C71 /* StockApp */,
 				2E2EA77B20FD322200D89C71 /* Products */,
 			);
@@ -89,9 +100,6 @@
 				2E2EA78420FD322200D89C71 /* Assets.xcassets */,
 				2E2EA78620FD322200D89C71 /* LaunchScreen.storyboard */,
 				2E2EA78920FD322200D89C71 /* Info.plist */,
-				0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */,
-				0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */,
-				0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */,
 			);
 			path = StockApp;
 			sourceTree = "<group>";
