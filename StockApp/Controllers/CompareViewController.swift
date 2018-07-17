@@ -46,9 +46,9 @@ extension CompareViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
-            cell.textLabel?.text = "Actual price"
-            cell.detailTextLabel?.text = "$ 1M"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
+            cell.firstCompatitor.text = "$ 1,2 mil"
+            cell.secondCompatitor.text = "$ 1,1 mil"
             return cell
         }
     }
