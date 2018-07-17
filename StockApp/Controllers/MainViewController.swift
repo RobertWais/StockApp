@@ -37,12 +37,20 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    //    TODO: STATIC DATA -> API DATA, Switch statement
+    //    TODO: STATIC DATA -> API DATA
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockTableViewCell") as! StockTableViewCell
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = "Apple"
-        cell.detailTextLabel?.text = "$ 1 mil"
+        switch indexPath.row {
+        case 0:
+        cell.textLabel?.text = "Amazon"
+        cell.detailTextLabel?.text = "$ 1,2 mil"
+        case 1:
+            cell.textLabel?.text = "Apple"
+            cell.detailTextLabel?.text = "$ 1,5 mil"
+        default:
+            print("Out of indexPath")
+        }
         return cell
     }
     
