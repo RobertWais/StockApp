@@ -37,6 +37,7 @@ extension CompareViewController: UITableViewDataSource {
         return 3
     }
     
+    //    : MARK - SWITCH STATEMENT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
@@ -47,6 +48,7 @@ extension CompareViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
             cell.textLabel?.text = "Actual price"
+            cell.detailTextLabel?.text = "$ 1M"
             return cell
         }
     }
