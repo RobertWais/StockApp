@@ -7,19 +7,16 @@
 //
 
 import UIKit
-
-private let reuseIdentifier = "Cell"
-
-class StockCollectionVC: UICollectionViewController {
+class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.CellIdentifiers.companyCollectionView)
 
         // Do any additional setup after loading the view.
     }
@@ -43,22 +40,30 @@ class StockCollectionVC: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 6
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.companyCollectionView, for: indexPath) as! CompanyCollectionViewCell
     
+        var tempCompany = Company(image: UIImage(named: "char_shadow")!, title: "Test", ticker: "TTTT")
+        cell.configureCell(company: tempCompany)
         // Configure the cell
     
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+    //size of Cell
+    
 
     // MARK: UICollectionViewDelegate
 

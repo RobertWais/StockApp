@@ -18,8 +18,9 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var companyTitle: UILabel!
     
     
-    func configureCell(){
-        
+    func configureCell(company: Company){
+        imageView.image = company.image
+        companyTitle.text = company.title
     }
     
 }
