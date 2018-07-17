@@ -7,17 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C120FD4C720009FCA8 /* CompareViewController.swift */; };
+		0A1491C520FD50FD0009FCA8 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */; };
+		0A1491C720FD60B40009FCA8 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */; };
+		0A1491C920FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */; };
+		0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */; };
+		0A1491CD20FD66360009FCA8 /* ComparePriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */; };
+		0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */; };
+		0ADCBD9020FDAC6600A60948 /* PortfolioStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */; };
+		0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */; };
 		2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77D20FD322200D89C71 /* AppDelegate.swift */; };
-		2E2EA78020FD322200D89C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77F20FD322200D89C71 /* ViewController.swift */; };
+		2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77F20FD322200D89C71 /* MainViewController.swift */; };
 		2E2EA78320FD322200D89C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2EA78120FD322200D89C71 /* Main.storyboard */; };
 		2E2EA78520FD322200D89C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2EA78420FD322200D89C71 /* Assets.xcassets */; };
 		2E2EA78820FD322200D89C71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2EA78620FD322200D89C71 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1491C120FD4C720009FCA8 /* CompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewController.swift; sourceTree = "<group>"; };
+		0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlTableViewCell.swift; sourceTree = "<group>"; };
+		0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
+		0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePriceTableViewCell.swift; sourceTree = "<group>"; };
+		0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioStockTableViewCell.swift; sourceTree = "<group>"; };
+		0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGraphTableViewCell.swift; sourceTree = "<group>"; };
 		2E2EA77A20FD322200D89C71 /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2EA77D20FD322200D89C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E2EA77F20FD322200D89C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E2EA77F20FD322200D89C71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2E2EA78220FD322200D89C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E2EA78420FD322200D89C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E2EA78720FD322200D89C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,9 +53,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1491C320FD4C7C0009FCA8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E2EA77F20FD322200D89C71 /* MainViewController.swift */,
+				0A1491C120FD4C720009FCA8 /* CompareViewController.swift */,
+				0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */,
+				0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0ADCBD9320FDB93A00A60948 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				0A1491C420FD50FD0009FCA8 /* StockTableViewCell.swift */,
+				0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */,
+				0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */,
+				0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */,
+				0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */,
+				0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		2E2EA77120FD322200D89C71 = {
 			isa = PBXGroup;
 			children = (
+				0ADCBD9320FDB93A00A60948 /* TableViewCells */,
 				2E2EA77C20FD322200D89C71 /* StockApp */,
 				2E2EA77B20FD322200D89C71 /* Products */,
 			);
@@ -55,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2E2EA77D20FD322200D89C71 /* AppDelegate.swift */,
-				2E2EA77F20FD322200D89C71 /* ViewController.swift */,
+				0A1491C320FD4C7C0009FCA8 /* Controllers */,
 				2E2EA78120FD322200D89C71 /* Main.storyboard */,
 				2E2EA78420FD322200D89C71 /* Assets.xcassets */,
 				2E2EA78620FD322200D89C71 /* LaunchScreen.storyboard */,
@@ -91,7 +134,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = MakeSchoolHackathon;
 				TargetAttributes = {
 					2E2EA77920FD322200D89C71 = {
@@ -136,7 +179,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E2EA78020FD322200D89C71 /* ViewController.swift in Sources */,
+				0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */,
+				0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */,
+				0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */,
+				0A1491CD20FD66360009FCA8 /* ComparePriceTableViewCell.swift in Sources */,
+				0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */,
+				0A1491C720FD60B40009FCA8 /* PortfolioViewController.swift in Sources */,
+				2E2EA78020FD322200D89C71 /* MainViewController.swift in Sources */,
+				0A1491C520FD50FD0009FCA8 /* StockTableViewCell.swift in Sources */,
+				0ADCBD9020FDAC6600A60948 /* PortfolioStockTableViewCell.swift in Sources */,
+				0A1491C920FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift in Sources */,
 				2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +229,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -184,6 +237,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -234,6 +288,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -241,6 +296,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -275,6 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ASQC376HCN;
 				INFOPLIST_FILE = StockApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bob.StockApp;
@@ -289,6 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ASQC376HCN;
 				INFOPLIST_FILE = StockApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bob.StockApp;
