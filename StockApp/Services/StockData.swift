@@ -39,8 +39,20 @@ struct StockData {
         }
     }
     
-    func getSingleStock(){
-        
+    static func stockNews() {
+        Alamofire.request(Constants.getNewsString(symbol: "AAPL")).validate().responseJSON { (data) in
+            let result = data.result.value as! [String: Any]
+            
+            guard let items = result["items"] as? Array<Dictionary<String,Any>> else {
+                print("NOOOOs")
+                return
+            }
+            
+            for item in items{
+                print("Item: \(item)")
+            }
+            //print("result: \(result)")
+        }
     }
     
     

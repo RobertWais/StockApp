@@ -15,6 +15,7 @@
 		2E2EA79420FD678C00D89C71 /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA79320FD678C00D89C71 /* StockData.swift */; };
 		2E2EA79720FD8DB700D89C71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA79620FD8DB700D89C71 /* Constants.swift */; };
 		2E2EA79B20FD924700D89C71 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA79A20FD924700D89C71 /* Entry.swift */; };
+		2E2EA79D20FE573600D89C71 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA79C20FE573600D89C71 /* News.swift */; };
 		8629F332D1F9DEDF56B93446 /* Pods_StockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C337557E020C0DDAA22B2F05 /* Pods_StockApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		2E2EA79320FD678C00D89C71 /* StockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
 		2E2EA79620FD8DB700D89C71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2E2EA79A20FD924700D89C71 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		2E2EA79C20FE573600D89C71 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		60A73DE70965D8A49E554755 /* Pods-StockApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockApp/Pods-StockApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8FAACB9A3A394DE5CB4D3B39 /* Pods-StockApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockApp/Pods-StockApp.release.xcconfig"; sourceTree = "<group>"; };
 		C337557E020C0DDAA22B2F05 /* Pods_StockApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2E2EA79A20FD924700D89C71 /* Entry.swift */,
+				2E2EA79C20FE573600D89C71 /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2EA79D20FE573600D89C71 /* News.swift in Sources */,
 				2E2EA79B20FD924700D89C71 /* Entry.swift in Sources */,
 				2E2EA78020FD322200D89C71 /* ViewController.swift in Sources */,
 				2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */,
