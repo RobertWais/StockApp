@@ -263,11 +263,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StockApp/Pods-StockApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +284,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */,
 				0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */,
 				0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */,
