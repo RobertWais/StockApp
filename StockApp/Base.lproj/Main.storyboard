@@ -279,6 +279,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="6WZ-ZX-yaK" kind="relationship" relationship="viewControllers" id="k5I-ig-K9Y"/>
@@ -294,7 +295,7 @@
         <scene sceneID="9TN-44-Rga">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6WZ-ZX-yaK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" id="IDg-Qo-n7I"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="stock" selectedImage="stock_selected" id="IDg-Qo-n7I"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eva-mU-U8n">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -314,7 +315,7 @@
         <scene sceneID="fXb-BL-g2X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pp0-fV-HH5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Compare" id="1FC-W6-bzr"/>
+                    <tabBarItem key="tabBarItem" title="Compare" image="compare" selectedImage="compare_selected" id="1FC-W6-bzr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hej-vU-5Fu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -334,7 +335,7 @@
         <scene sceneID="Ii3-Zn-xHf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2ka-sk-GQs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Portfolio" id="inm-4r-dUB"/>
+                    <tabBarItem key="tabBarItem" title="Portfolio" image="portfolio" selectedImage="portfolio_selected" id="inm-4r-dUB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VHq-Nj-2yO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -353,5 +354,11 @@
     </scenes>
     <resources>
         <image name="apple-stock-chart" width="1635" height="503"/>
+        <image name="compare" width="25" height="25"/>
+        <image name="compare_selected" width="25" height="25"/>
+        <image name="portfolio" width="25" height="25"/>
+        <image name="portfolio_selected" width="25" height="25"/>
+        <image name="stock" width="25" height="25"/>
+        <image name="stock_selected" width="25" height="25"/>
     </resources>
 </document>
