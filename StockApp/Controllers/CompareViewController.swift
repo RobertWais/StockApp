@@ -37,7 +37,7 @@ extension CompareViewController: UITableViewDataSource {
         return 3
     }
     
-    //    : MARK - SWITCH STATEMENT
+    //    TODO: SWITCH STATEMENT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
