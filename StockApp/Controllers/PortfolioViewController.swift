@@ -9,6 +9,8 @@
 import UIKit
 
 class PortfolioViewController: UIViewController {
+    
+    let addNavigationItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +18,15 @@ class PortfolioViewController: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.barStyle = .black
+            navigationItem.rightBarButtonItem = addNavigationItem
+            navigationItem.rightBarButtonItem?.image = UIImage(named: "addIcon")
+            navigationItem.rightBarButtonItem?.tintColor = .white
         }
 
+    }
+    
+    @objc func addTapped() {
+        
     }
 
     override func didReceiveMemoryWarning() {
