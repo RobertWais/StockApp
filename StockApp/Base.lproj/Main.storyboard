@@ -352,6 +352,9 @@
                         <viewLayoutGuide key="safeArea" id="KKl-hi-2Dz"/>
                     </view>
                     <connections>
+                        <outlet property="actualPriceValue" destination="Xyl-8V-KWb" id="X6K-pc-HA9"/>
+                        <outlet property="addButton" destination="Van-bF-lkU" id="8Ai-L7-pJV"/>
+                        <outlet property="addValueTextField" destination="MiQ-Qk-t2G" id="y5G-Ob-ASy"/>
                         <outlet property="tableView" destination="RiS-PU-1DN" id="BPm-FQ-sBv"/>
                     </connections>
                 </viewController>
@@ -578,7 +581,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addIcon" width="96" height="96"/>
+        <image name="addIcon" width="48" height="48"/>
         <image name="apple-stock-chart" width="1635" height="503"/>
         <image name="compare" width="25" height="25"/>
         <image name="compare_selected" width="25" height="25"/>

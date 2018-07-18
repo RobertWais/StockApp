@@ -12,9 +12,13 @@ class PortfolioDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var addValueTextField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var actualPriceValue: UILabel!
     @IBAction func addToPortfolioButtonTapped(_ sender: UIButton) {
         print("Button pressed")
         self.view.endEditing(true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -27,13 +31,11 @@ class PortfolioDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "Add New Portfolio"
         tableView.dataSource = self
-
-        // Do any additional setup after loading the view.
+        addValueTextField.becomeFirstResponder()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -53,7 +55,7 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
         if indexPath.section == 0 {
-        switch indexPath.row {
+            switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Amazon"
         case 1:
