@@ -14,6 +14,7 @@
 		0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */; };
 		0A1491CD20FD66360009FCA8 /* ComparePriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */; };
 		0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */; };
+		0A78A82A20FFB2DE00E03953 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78A82920FFB2DE00E03953 /* PortfolioDetailViewController.swift */; };
 		0ADCBD9020FDAC6600A60948 /* PortfolioStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */; };
 		0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */; };
 		2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77D20FD322200D89C71 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
 		0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePriceTableViewCell.swift; sourceTree = "<group>"; };
 		0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		0A78A82920FFB2DE00E03953 /* PortfolioDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewController.swift; sourceTree = "<group>"; };
 		0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioStockTableViewCell.swift; sourceTree = "<group>"; };
 		0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGraphTableViewCell.swift; sourceTree = "<group>"; };
 		2E2EA77A20FD322200D89C71 /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				0A1491C620FD60B40009FCA8 /* PortfolioViewController.swift */,
 				0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */,
 				2E2EA79E20FE9AB000D89C71 /* StockCollectionVC.swift */,
+				0A78A82920FFB2DE00E03953 /* PortfolioDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A78A82A20FFB2DE00E03953 /* PortfolioDetailViewController.swift in Sources */,
 				0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */,
 				0A1491C220FD4C720009FCA8 /* CompareViewController.swift in Sources */,
 				0A1491CB20FD64D40009FCA8 /* GraphTableViewCell.swift in Sources */,

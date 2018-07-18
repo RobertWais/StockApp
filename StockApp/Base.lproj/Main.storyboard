@@ -241,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="1777" y="1037"/>
         </scene>
-        <!--View Controller-->
+        <!--Portfolio Detail View Controller-->
         <scene sceneID="N5O-HF-wQQ">
             <objects>
-                <viewController id="mnY-or-vHl" sceneMemberID="viewController">
+                <viewController id="mnY-or-vHl" customClass="PortfolioDetailViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rFB-q2-QK2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
