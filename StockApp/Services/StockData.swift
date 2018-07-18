@@ -14,7 +14,7 @@ struct StockData {
     static func getStockTime(timeSlot: String, symbol: String, completion: @escaping ([Entry])->()){
         Alamofire.request(Constants.getData(timeSlot: timeSlot, symbol: symbol )).validate().responseJSON () { (data) in
             var tempArr = [Entry]()
-            
+            print("Ethan Canada Dry")
             //Cast result to a Dictionary
             let result = data.result.value as! [String: Any]
             
@@ -22,7 +22,6 @@ struct StockData {
                 print("Could not retrieve timestamp")
                 return
             }
-            
             for dic in dict {
                 guard let date = stringToDate(string: dic.key),
                     let tempValue = dic.value as? [String: Any] else{

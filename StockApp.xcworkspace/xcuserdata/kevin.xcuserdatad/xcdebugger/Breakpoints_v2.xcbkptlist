@@ -6,16 +6,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StockApp/Controllers/MainViewController.swift"
-            timestampString = "553563376.758325"
+            filePath = "StockApp/Services/StockData.swift"
+            timestampString = "553583549.128509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "getStockTime(timeSlot:symbol:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static StockApp.StockData.getStockTime(timeSlot: Swift.String, symbol: Swift.String, completion: (Swift.Array&lt;StockApp.Entry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "StockApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kevin/Documents/GitHub/StockApp/StockApp/Services/StockData.swift"
+                  timestampString = "553582954.933995"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in static StockApp.StockData.getStockTime(timeSlot: Swift.String, symbol: Swift.String, completion: (Swift.Array&lt;StockApp.Entry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "StockApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kevin/Documents/GitHub/StockApp/StockApp/Services/StockData.swift"
+                  timestampString = "553582954.937296"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StockApp/Supporting Files/Constants.swift"
+            timestampString = "553583549.128575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "APICall"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_028_B4F4256EB15D7F7C343A6603D78E3FC3_func0"
+                  moduleName = "StockApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kevin/Documents/GitHub/StockApp/StockApp/Supporting%20Files/Constants.swift"
+                  timestampString = "553582954.944158"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StockApp.Constants.APICall.APIKey.unsafeMutableAddressor : Swift.String"
+                  moduleName = "StockApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kevin/Documents/GitHub/StockApp/StockApp/Supporting%20Files/Constants.swift"
+                  timestampString = "553582954.947271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static StockApp.Constants.APICall.APIKey.getter : Swift.String"
+                  moduleName = "StockApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kevin/Documents/GitHub/StockApp/StockApp/Supporting%20Files/Constants.swift"
+                  timestampString = "553582954.950382"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StockApp/Supporting Files/Constants.swift"
+            timestampString = "553583549.128623"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getData(timeSlot:symbol:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +137,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StockApp/Controllers/MainViewController.swift"
-            timestampString = "553563376.758386"
+            timestampString = "553583549.128669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "chartValueSelected(_:entry:highlight:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

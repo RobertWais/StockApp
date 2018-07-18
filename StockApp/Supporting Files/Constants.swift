@@ -38,6 +38,7 @@ struct Constants {
     }
     static func getData(timeSlot: String,symbol: String)->(String){
         let returnString = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=\(symbol)&outputsize=100&apikey=\(APICall.APIKey)"
+        print(returnString)
         return returnString
     }
     

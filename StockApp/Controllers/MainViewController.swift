@@ -13,6 +13,8 @@ class MainViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: LineChartView!
     
+    var chartDataEntry = [ChartDataEntry]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
@@ -20,7 +22,20 @@ class MainViewController: UIViewController, ChartViewDelegate {
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.barStyle = .black
         }
+        
+        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: "AAPL") { (data) in
+            print("\(data.count)")
+            for index in 0..<10 {
+                self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
+                print(data[index].timeFrame)
+            }
+            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "DataSet 1")
+            self.chartView.data = LineChartData(dataSet: set1)
+            
+        }
+        
         self.title = "Line Chart 1"
+        
         
         chartView.delegate = self
         
@@ -55,7 +70,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
         leftAxis.removeAllLimitLines()
         leftAxis.addLimitLine(ll1)
         leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = 200
+        leftAxis.axisMaximum = 1000
         leftAxis.axisMinimum = -50
         leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.drawLimitLinesBehindDataEnabled = true
@@ -65,6 +80,8 @@ class MainViewController: UIViewController, ChartViewDelegate {
         chartView.legend.form = .line
         
         chartView.animate(xAxisDuration: 2.5)
+        
+        
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
