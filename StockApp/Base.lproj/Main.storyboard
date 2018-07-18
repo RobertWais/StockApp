@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sxa-qS-Qwr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sxa-qS-Qwr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-zM-Wnb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-zM-Wnb">
+                                <rect key="frame" x="0.0" y="324" width="375" height="294"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SegmentedControlTableViewCell" id="sPN-Nc-VXv" customClass="SegmentedControlTableViewCell" customModule="StockApp" customModuleProvider="target">
@@ -46,49 +46,30 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="297" id="aQq-Hq-o1K" customClass="GraphTableViewCell" customModule="StockApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="297"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQq-Hq-o1K" id="MkR-I3-iOc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="296.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-stock-chart" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-Ns-X9P">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="296.5"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="LLR-Ns-X9P" secondAttribute="trailing" id="5Hy-Yw-lao"/>
-                                                <constraint firstItem="LLR-Ns-X9P" firstAttribute="leading" secondItem="MkR-I3-iOc" secondAttribute="leading" id="fbJ-bh-aEC"/>
-                                                <constraint firstAttribute="bottom" secondItem="LLR-Ns-X9P" secondAttribute="bottom" id="pTe-ed-vp2"/>
-                                                <constraint firstItem="LLR-Ns-X9P" firstAttribute="top" secondItem="MkR-I3-iOc" secondAttribute="top" id="svS-GI-15P"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ComparePriceTableViewCell" id="ipa-g1-u1T" customClass="ComparePriceTableViewCell" customModule="StockApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="369" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipa-g1-u1T" id="qWf-3B-hjH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="ZDb-Uh-Pcr">
-                                                    <rect key="frame" x="30" y="11" width="315" height="20.5"/>
+                                                    <rect key="frame" x="23" y="11" width="329" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7x6-2s-mTk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Or-Ld-Lll">
-                                                            <rect key="frame" x="158" y="0.0" width="42" height="20.5"/>
+                                                            <rect key="frame" x="172" y="0.0" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5n-nI-kT0">
-                                                            <rect key="frame" x="273" y="0.0" width="42" height="20.5"/>
+                                                            <rect key="frame" x="287" y="0.0" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -108,14 +89,32 @@
                                             <outlet property="secondCompatitor" destination="i5n-nI-kT0" id="Y2O-fV-AUQ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="297" id="aQq-Hq-o1K" customClass="GraphTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="297"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQq-Hq-o1K" id="MkR-I3-iOc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="296.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmt-hi-y7B">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="QHB-EB-cH5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Kmt-hi-y7B" firstAttribute="leading" secondItem="yZ5-ZZ-pab" secondAttribute="leading" id="3Ek-2y-eJT"/>
                             <constraint firstItem="yZ5-ZZ-pab" firstAttribute="trailing" secondItem="CU2-zM-Wnb" secondAttribute="trailing" id="3qy-n8-gBL"/>
+                            <constraint firstItem="yZ5-ZZ-pab" firstAttribute="trailing" secondItem="Kmt-hi-y7B" secondAttribute="trailing" id="7YR-ZY-fCz"/>
                             <constraint firstItem="CU2-zM-Wnb" firstAttribute="leading" secondItem="yZ5-ZZ-pab" secondAttribute="leading" id="FRk-mC-lkv"/>
                             <constraint firstItem="yZ5-ZZ-pab" firstAttribute="bottom" secondItem="CU2-zM-Wnb" secondAttribute="bottom" id="XAd-5j-I1F"/>
+                            <constraint firstItem="Kmt-hi-y7B" firstAttribute="top" secondItem="yZ5-ZZ-pab" secondAttribute="top" id="f8c-N3-yq5"/>
                             <constraint firstItem="CU2-zM-Wnb" firstAttribute="top" secondItem="yZ5-ZZ-pab" secondAttribute="top" id="fBl-IE-bsX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yZ5-ZZ-pab"/>
@@ -453,7 +452,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple-stock-chart" width="1635" height="503"/>
         <image name="compare" width="25" height="25"/>
         <image name="compare_selected" width="25" height="25"/>
         <image name="portfolio" width="25" height="25"/>

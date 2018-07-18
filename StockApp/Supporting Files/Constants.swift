@@ -24,6 +24,7 @@ struct Constants {
     struct APICall {
         static let APIKey = "Y0FL3ZP4752EYZ9O"
         static let stockTimeLine = "here"
+        static let dailySlot = "TIME_SERIES_DAILY"
         static let weeklySlot = "TIME_SERIES_WEEKLY"
         static let monthlySlot = "TIME_SERIES_MONTHLY"
         static let converter =  "https://api.rss2json.com/v1/api.json?rss_url="
