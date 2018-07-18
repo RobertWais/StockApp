@@ -11,6 +11,10 @@ import Charts
 
 class CompareViewController: UIViewController, ChartViewDelegate {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var company: Company?
     @IBOutlet var chartView: LineChartView!
     @IBOutlet weak var tableView: UITableView!
 
@@ -18,10 +22,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
    
     
     
-    
-    var company = Company(image: UIImage(named: "char_shadow")!, title: "Apple", ticker: "AAPL")
     var chartDataEntry = [ChartDataEntry]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
