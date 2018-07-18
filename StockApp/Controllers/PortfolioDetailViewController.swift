@@ -10,6 +10,8 @@ import UIKit
 
 class PortfolioDetailViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
@@ -18,6 +20,7 @@ class PortfolioDetailViewController: UIViewController {
             navigationController?.navigationBar.barStyle = .black
         }
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -26,16 +29,53 @@ class PortfolioDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension PortfolioDetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 3
+        } else {
+            return 2
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
+        if indexPath.section == 0 {
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = "Amazon"
+        case 1:
+            cell.textLabel?.text = "Apple"
+        case 2:
+            cell.textLabel?.text = "Google"
+        default:
+            print("OUT OF INDEXPATH")
+        }
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Actual price"
+            case 1:
+                cell.textLabel?.text = "Portfolio"
+            default:
+                print("OUT OF INDEXPATH")
+            }
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Choose Stock"
+        } else {
+            return "Values"
+        }
+    }
 }

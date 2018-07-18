@@ -15,6 +15,7 @@
 		0A1491CD20FD66360009FCA8 /* ComparePriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */; };
 		0A14EF7220FE4DB30018ED5D /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */; };
 		0A78A82A20FFB2DE00E03953 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78A82920FFB2DE00E03953 /* PortfolioDetailViewController.swift */; };
+		0A78A82C20FFB66600E03953 /* ChooseStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78A82B20FFB66600E03953 /* ChooseStockTableViewCell.swift */; };
 		0ADCBD9020FDAC6600A60948 /* PortfolioStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */; };
 		0ADCBD9220FDB53600A60948 /* PortfolioGraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */; };
 		2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EA77D20FD322200D89C71 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		0A1491CC20FD66360009FCA8 /* ComparePriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePriceTableViewCell.swift; sourceTree = "<group>"; };
 		0A14EF7120FE4DB30018ED5D /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		0A78A82920FFB2DE00E03953 /* PortfolioDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewController.swift; sourceTree = "<group>"; };
+		0A78A82B20FFB66600E03953 /* ChooseStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStockTableViewCell.swift; sourceTree = "<group>"; };
 		0ADCBD8F20FDAC6600A60948 /* PortfolioStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioStockTableViewCell.swift; sourceTree = "<group>"; };
 		0ADCBD9120FDB53600A60948 /* PortfolioGraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGraphTableViewCell.swift; sourceTree = "<group>"; };
 		2E2EA77A20FD322200D89C71 /* StockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				0A1491C820FD62DC0009FCA8 /* SegmentedControlTableViewCell.swift */,
 				0A1491CA20FD64D40009FCA8 /* GraphTableViewCell.swift */,
 				2E2EA7A020FE9AD600D89C71 /* CompanyCollectionViewCell.swift */,
+				0A78A82B20FFB66600E03953 /* ChooseStockTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				2E2EA79B20FD924700D89C71 /* Entry.swift in Sources */,
 				2E2EA77E20FD322200D89C71 /* AppDelegate.swift in Sources */,
 				2E2EA7A120FE9AD600D89C71 /* CompanyCollectionViewCell.swift in Sources */,
+				0A78A82C20FFB66600E03953 /* ChooseStockTableViewCell.swift in Sources */,
 				2E2EA79420FD678C00D89C71 /* StockData.swift in Sources */,
 				2E2EA79720FD8DB700D89C71 /* Constants.swift in Sources */,
 			);
