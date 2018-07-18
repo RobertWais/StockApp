@@ -17,6 +17,7 @@ struct StockData {
         Alamofire.request(Constants.getData(timeSlot: timeSlot, symbol: symbol )).validate().responseJSON () { (data) in
             var tempArr = [Entry]()
             
+            
             //Cast result to a Dictionary
             let result = data.result.value as! [String: Any]
             
