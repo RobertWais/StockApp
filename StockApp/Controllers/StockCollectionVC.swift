@@ -12,6 +12,7 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -46,7 +47,7 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 6
+        return 12
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,14 +56,30 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
         var tempCompany = Company(image: UIImage(named: "char_shadow")!, title: "Test", ticker: "TTTT")
         cell.configureCell(company: tempCompany)
         // Configure the cell
-    
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        var navHeight = self.navigationController?.navigationBar.frame.height
+        var totalHeight = ((view.frame.height)-navHeight!-navHeight!)/4
+        return CGSize(width: (view.frame.width/3), height: totalHeight)
     }
-    //size of Cell
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    
+    
     
 
     // MARK: UICollectionViewDelegate
@@ -74,12 +91,13 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     }
     */
 
-    /*
+    
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print("Selected index: \(indexPath.row)")
         return true
     }
-    */
+ 
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
