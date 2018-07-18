@@ -19,8 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-zM-Wnb">
                                 <rect key="frame" x="0.0" y="324" width="375" height="294"/>
+=======
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CU2-zM-Wnb">
+                                <rect key="frame" x="0.0" y="314" width="375" height="304"/>
+>>>>>>> 1c5d1e99148771e24e56f15e783131fd04dd987b
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SegmentedControlTableViewCell" id="sPN-Nc-VXv" customClass="SegmentedControlTableViewCell" customModule="StockApp" customModuleProvider="target">
@@ -33,8 +38,8 @@
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cpb-7g-sVQ">
                                                     <rect key="frame" x="5" y="8" width="365" height="29"/>
                                                     <segments>
-                                                        <segment title="Week"/>
                                                         <segment title="Month"/>
+                                                        <segment title="Year"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.1048446261" green="0.50372065889999995" blue="0.84927046299999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </segmentedControl>
@@ -46,8 +51,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+<<<<<<< HEAD
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ComparePriceTableViewCell" id="ipa-g1-u1T" customClass="ComparePriceTableViewCell" customModule="StockApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+=======
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GraphTableViewCell" rowHeight="238" id="aQq-Hq-o1K" customClass="GraphTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="238"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQq-Hq-o1K" id="MkR-I3-iOc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="237.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ComparePriceTableViewCell" id="ipa-g1-u1T" customClass="ComparePriceTableViewCell" customModule="StockApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="310" width="375" height="44"/>
+>>>>>>> 1c5d1e99148771e24e56f15e783131fd04dd987b
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipa-g1-u1T" id="qWf-3B-hjH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -99,16 +117,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+<<<<<<< HEAD
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmt-hi-y7B">
                                 <rect key="frame" x="0.0" y="64" width="375" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="QHB-EB-cH5"/>
+=======
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufm-Ad-WXT" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="D1m-fd-rv5"/>
+>>>>>>> 1c5d1e99148771e24e56f15e783131fd04dd987b
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstItem="Kmt-hi-y7B" firstAttribute="leading" secondItem="yZ5-ZZ-pab" secondAttribute="leading" id="3Ek-2y-eJT"/>
                             <constraint firstItem="yZ5-ZZ-pab" firstAttribute="trailing" secondItem="CU2-zM-Wnb" secondAttribute="trailing" id="3qy-n8-gBL"/>
                             <constraint firstItem="yZ5-ZZ-pab" firstAttribute="trailing" secondItem="Kmt-hi-y7B" secondAttribute="trailing" id="7YR-ZY-fCz"/>
@@ -116,11 +143,21 @@
                             <constraint firstItem="yZ5-ZZ-pab" firstAttribute="bottom" secondItem="CU2-zM-Wnb" secondAttribute="bottom" id="XAd-5j-I1F"/>
                             <constraint firstItem="Kmt-hi-y7B" firstAttribute="top" secondItem="yZ5-ZZ-pab" secondAttribute="top" id="f8c-N3-yq5"/>
                             <constraint firstItem="CU2-zM-Wnb" firstAttribute="top" secondItem="yZ5-ZZ-pab" secondAttribute="top" id="fBl-IE-bsX"/>
+=======
+                            <constraint firstItem="CU2-zM-Wnb" firstAttribute="bottom" secondItem="yZ5-ZZ-pab" secondAttribute="bottom" id="3q6-5p-bFY"/>
+                            <constraint firstItem="ufm-Ad-WXT" firstAttribute="top" secondItem="yZ5-ZZ-pab" secondAttribute="top" id="LZc-gO-HAG"/>
+                            <constraint firstItem="CU2-zM-Wnb" firstAttribute="trailing" secondItem="yZ5-ZZ-pab" secondAttribute="trailing" id="OzD-py-E7n"/>
+                            <constraint firstItem="CU2-zM-Wnb" firstAttribute="top" secondItem="ufm-Ad-WXT" secondAttribute="bottom" id="VbM-7g-qhE"/>
+                            <constraint firstItem="yZ5-ZZ-pab" firstAttribute="trailing" secondItem="ufm-Ad-WXT" secondAttribute="trailing" id="dqr-gg-aSh"/>
+                            <constraint firstItem="ufm-Ad-WXT" firstAttribute="leading" secondItem="yZ5-ZZ-pab" secondAttribute="leading" id="fkO-UH-lh7"/>
+                            <constraint firstItem="CU2-zM-Wnb" firstAttribute="leading" secondItem="yZ5-ZZ-pab" secondAttribute="leading" id="uKY-su-iA9"/>
+>>>>>>> 1c5d1e99148771e24e56f15e783131fd04dd987b
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yZ5-ZZ-pab"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compare" id="sP7-06-IrM"/>
                     <connections>
+                        <outlet property="chartView" destination="ufm-Ad-WXT" id="VSy-jt-1HA"/>
                         <outlet property="tableView" destination="CU2-zM-Wnb" id="YyM-MC-YaZ"/>
                     </connections>
                 </viewController>

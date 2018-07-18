@@ -8,6 +8,10 @@ target 'StockApp' do
   # Pods for StockApp
 	pod 'Alamofire', '~> 4.7'
 	pod 'SwiftyJSON', '~> 4.0'
+<<<<<<< HEAD
 	pod 'Charts'
+=======
+        pod 'Charts'
+>>>>>>> 1c5d1e99148771e24e56f15e783131fd04dd987b
 
 end
