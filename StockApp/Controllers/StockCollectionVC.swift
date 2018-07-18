@@ -9,6 +9,8 @@
 import UIKit
 class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    var indexPath: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +29,20 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
         // Dispose of any resources that can be recreated.
     }
 
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {return}
+        if identifier == "toDetails" {
+            let destination = segue.destination as! CompareViewController
+            guard let index = indexPath else {
+                print("Error in segue - no indexPath")
+                return
+            }
+            print("Here")
+            destination.company = Constants.testData.testData[index]
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -47,13 +63,12 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 12
+        return 9
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.companyCollectionView, for: indexPath) as! CompanyCollectionViewCell
-    
-        var tempCompany = Company(image: UIImage(named: "char_shadow")!, title: "Test", ticker: "TTTT")
+    var tempCompany = Constants.testData.testData[indexPath.row]
         cell.configureCell(company: tempCompany)
         // Configure the cell
         return cell
@@ -61,7 +76,7 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var navHeight = self.navigationController?.navigationBar.frame.height
-        var totalHeight = ((view.frame.height)-navHeight!-navHeight!)/4
+        var totalHeight = ((view.frame.height)-navHeight!-navHeight!)/3
         return CGSize(width: (view.frame.width/3), height: totalHeight)
     }
     
@@ -94,7 +109,9 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        self.indexPath = indexPath.row
         print("Selected index: \(indexPath.row)")
+        //self.performSegue(withIdentifier: "toDetails", sender: self)
         return true
     }
  

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     struct Segue {
@@ -34,6 +35,20 @@ struct Constants {
         //converter newsFinance \(ticker) region
 //        https://feeds.finance.yahoo.com/rss/2.0/headline?s=ticker(s)&region=US&lang=en-US
         //Function is called to get the correct URL for Alamofire
+        
+    }
+    
+    struct testData {
+        static let testData = [Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
+                               Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
+                            Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG"),
+                            Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
+                            Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
+                            Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG"),
+                            Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
+                            Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
+                            Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG")]
+                               
         
     }
     static func getData(timeSlot: String,symbol: String)->(String){

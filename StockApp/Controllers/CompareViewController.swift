@@ -10,7 +10,10 @@ import UIKit
 
 class CompareViewController: UIViewController {
 
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var company: Company?
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
