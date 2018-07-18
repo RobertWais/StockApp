@@ -35,7 +35,6 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.tableFooterView = UIView()
         
         guard let indyCompany = company else {
-            fatalError("No Company")
             return
         }
     
@@ -97,8 +96,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         leftAxis.removeAllLimitLines()
         //leftAxis.addLimitLine(ll1)
         //leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = 200
-        leftAxis.axisMinimum = 100
+        leftAxis.axisMaximum = 400
+        leftAxis.axisMinimum = 0
         
         //leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.drawLimitLinesBehindDataEnabled = true
