@@ -18,7 +18,7 @@ struct Constants {
     }
     
     struct CellIdentifiers {
-        //FILL IN
+        static let companyCollectionView = "CompanyCollectionViewCell"
     }
     
     struct APICall {

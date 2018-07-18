@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("test fork git")
-        StockData.stockNews()
+        StockData.stockNews { (news) in
+            for new in news {
+                print("News: \(new.description)")
+            }
+        }
         ///Roooooo
         // Do any additional setup after loading the view, typically from a nib.
     }

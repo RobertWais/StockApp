@@ -11,6 +11,8 @@ import Alamofire
 
 struct StockData {
     
+    
+    //Returns an Array of Entries in graph
     static func getStockTime(timeSlot: String, symbol: String, completion: @escaping ([Entry])->()){
         Alamofire.request(Constants.getData(timeSlot: timeSlot, symbol: symbol )).validate().responseJSON () { (data) in
             var tempArr = [Entry]()
@@ -39,18 +41,20 @@ struct StockData {
         }
     }
     
-    static func stockNews() {
+    //Returns Array of News
+    static func stockNews(completion: @escaping ([News])->()) {
         Alamofire.request(Constants.getNewsString(symbol: "AAPL")).validate().responseJSON { (data) in
             let result = data.result.value as! [String: Any]
-            
+            var newsData = [News]()
             guard let items = result["items"] as? Array<Dictionary<String,Any>> else {
-                print("NOOOOs")
+                print("Error finding news")
                 return
             }
-            
             for item in items{
-                print("Item: \(item)")
+                var temp = News(dict: item)
+                newsData.append(temp)
             }
+            completion(newsData)
             //print("result: \(result)")
         }
     }
