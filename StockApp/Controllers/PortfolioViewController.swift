@@ -20,9 +20,9 @@ class PortfolioViewController: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.barStyle = .black
-            navigationItem.rightBarButtonItem = addNavigationItem
-            navigationItem.rightBarButtonItem?.image = UIImage(named: "addIcon")
-            navigationItem.rightBarButtonItem?.tintColor = .white
+//            navigationItem.rightBarButtonItem = addNavigationItem
+//            navigationItem.rightBarButtonItem?.image = UIImage(named: "addIcon")
+//            navigationItem.rightBarButtonItem?.tintColor = .white
         }
         tableView.delegate = self
         tableView.dataSource = self
