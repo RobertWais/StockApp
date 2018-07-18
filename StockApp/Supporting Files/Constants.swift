@@ -42,13 +42,12 @@ struct Constants {
         static let testData = [Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
                                Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
                             Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG"),
-                            Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
-                            Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
-                            Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG"),
-                            Company(image: UIImage(named:"appleIcon")!, title: "APPLE", ticker: "AAPL"),
-                            Company(image: UIImage(named:"microsoftIcon")!, title: "Microsoft", ticker: "MSFT"),
-                            Company(image: UIImage(named:"googleIcon")!, title: "Google", ticker: "GOOG")]
-                               
+                            Company(image: UIImage(named:"amazonIcon")!, title: "AMZN", ticker: "AAPL"),
+                            Company(image: UIImage(named:"netflixIcon")!, title: "Microsoft", ticker: "NFLX"),
+                            Company(image: UIImage(named:"disneyIcon")!, title: "Walt Disney", ticker: "DIS"),
+                            Company(image: UIImage(named:"teslaIcon")!, title: "Tesla", ticker: "TSLA"),
+                            Company(image: UIImage(named:"facebookIcon")!, title: "Facebook", ticker: "FB"),
+                            Company(image: UIImage(named:"verizonIcon")!, title: "Verizon", ticker: "VZ")]
         
     }
     static func getData(timeSlot: String,symbol: String)->(String){
