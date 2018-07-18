@@ -16,7 +16,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
     
     var company: Company?
     @IBOutlet var chartView: LineChartView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet  var tableViewDetails: UITableView!
 
    
    
@@ -34,20 +34,26 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         
-        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: company.ticker) { (data) in
+        guard let indyCompany = company else {
+            fatalError("No Company")
+            return
+        }
+    
+        
+        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
             print("\(data.count)")
+            
             var count = data.count
             for index in (data.count - 30) ..< data.count {
                 self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
-                
-                print(data[index].timeFrame)
             }
             let set1 = LineChartDataSet(values: self.chartDataEntry, label: "DataSet 1")
             self.chartView.data = LineChartData(dataSet: set1)
+            
         }
         
         // IMPLEMENT STOCK NAME & TICKER
-        self.title = "\(company.title)"
+        self.title = "\(indyCompany.title)"
         
         
         chartView.delegate = self
@@ -91,8 +97,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         leftAxis.removeAllLimitLines()
         //leftAxis.addLimitLine(ll1)
         //leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = 1000
-        leftAxis.axisMinimum = -50
+        leftAxis.axisMaximum = 200
+        leftAxis.axisMinimum = 100
         
         //leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.drawLimitLinesBehindDataEnabled = true
@@ -159,4 +165,25 @@ extension CompareViewController: UITableViewDataSource {
 
 extension CompareViewController: UITableViewDelegate {
     
+}
+
+extension CompareViewController {
+    //Get (high, low)
+    func getHighLow(entries: [Entry])->(Int,Int){
+        var high:Double = 0
+        var low:Double = 0
+         for index in (entries.count - 30) ..< entries.count {
+            if let number = Double(entries[index].high){
+                if  number > high {
+                    high = number
+                }
+                if low == 0 {
+                    low = number
+                }else if number < low {
+                    low = number
+                }
+            }
+        }
+        return (Int(high),Int(low))
+    }
 }

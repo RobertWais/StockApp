@@ -111,7 +111,7 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         self.indexPath = indexPath.row
         print("Selected index: \(indexPath.row)")
-        //self.performSegue(withIdentifier: "toDetails", sender: self)
+        self.performSegue(withIdentifier: "toDetails", sender: self)
         return true
     }
  
