@@ -12,6 +12,11 @@ class PortfolioDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func addToPortfolioButtonTapped(_ sender: UIButton) {
+        print("Button pressed")
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
@@ -20,6 +25,7 @@ class PortfolioDetailViewController: UIViewController {
             navigationController?.navigationBar.barStyle = .black
         }
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.title = "Add New Portfolio"
         tableView.dataSource = self
 
         // Do any additional setup after loading the view.
@@ -33,7 +39,7 @@ class PortfolioDetailViewController: UIViewController {
 
 extension PortfolioDetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,10 +78,6 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Choose Stock"
-        } else {
-            return "Values"
-        }
+        return "Choose Stock"
     }
 }
