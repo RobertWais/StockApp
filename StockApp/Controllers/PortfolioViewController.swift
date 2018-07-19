@@ -44,26 +44,28 @@ class PortfolioViewController: UIViewController {
 
     }
     
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
+        portfolios = CoreDataHelper.retrievePortfolio()
+        updateValues()
+    }
+    
     func updateValues (){
         var count = 0
         for index in 0..<portfolios.count {
             if lookedUp.contains(portfolios[index].ticker!) {
             }else{
                 lookedUp.insert(portfolios[index].ticker!)
-                delay(Double(count*2))  //Here you put time you want to delay
+                delay(Double(index*2))  //Here you put time you want to delay
                 {
                     StockData.getDailyStocks(symbol: self.portfolios[index].ticker!) { (data) in
                         if data.count != 0 {
                             self.stockPrices[self.portfolios[index].ticker!] = (Double(data[data.count-1].close)!)
                             self.tableView.reloadData()
-                            
                         }
                     }
                 }
-                count += 1
+                count += 1 
             }
-            
-            
         }
     }
     @objc func addTapped() {
@@ -77,7 +79,7 @@ class PortfolioViewController: UIViewController {
 
 extension PortfolioViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Owned Stocks"
+        return "Owned Stocks\n  (Current Price) (# of Stocks)  (Total worth)"
     }
 }
 
