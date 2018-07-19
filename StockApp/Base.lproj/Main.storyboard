@@ -362,14 +362,14 @@
             </objects>
             <point key="canvasLocation" x="2541.5999999999999" y="1036.7316341829087"/>
         </scene>
-        <!--Main-->
+        <!--Stocks-->
         <scene sceneID="f3c-Ez-Ver">
             <objects>
                 <collectionViewController id="uwu-Wu-wcM" customClass="StockCollectionVC" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1Ku-U5-hGe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.21960784310000001" green="0.59215686270000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S6J-z5-sBv">
                             <size key="itemSize" width="140" height="133"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -407,6 +407,11 @@
                                     <constraint firstAttribute="trailing" secondItem="wb2-VG-tJo" secondAttribute="trailing" constant="5" id="o8o-Xk-uMQ"/>
                                     <constraint firstItem="wb2-VG-tJo" firstAttribute="top" secondItem="N5q-Gd-oQb" secondAttribute="top" constant="5" id="vlO-ae-ur2"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="companyTitle" destination="W3w-V5-bx1" id="1A7-Tt-wNF"/>
                                     <outlet property="imageView" destination="OtM-YF-8fz" id="90i-uF-r3B"/>
@@ -418,7 +423,7 @@
                             <outlet property="delegate" destination="uwu-Wu-wcM" id="w2Z-ZN-Aa6"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Etl-2y-Nxi"/>
+                    <navigationItem key="navigationItem" title="Stocks" id="Etl-2y-Nxi"/>
                     <connections>
                         <segue destination="TBR-67-ymq" kind="show" identifier="toDetails" id="wrW-SC-OU8"/>
                     </connections>
@@ -585,7 +590,6 @@
     </scenes>
     <resources>
         <image name="addIcon" width="48" height="48"/>
-        <image name="apple-stock-chart" width="1635" height="503"/>
         <image name="compare" width="25" height="25"/>
         <image name="compare_selected" width="25" height="25"/>
         <image name="portfolio" width="25" height="25"/>
