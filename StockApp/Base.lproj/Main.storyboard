@@ -282,7 +282,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ Add Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiQ-Qk-t2G">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Stock" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiQ-Qk-t2G">
                                                 <rect key="frame" x="0.0" y="32.5" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="drR-FJ-jlJ"/>
@@ -463,10 +463,13 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy7-iP-pSu">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="C">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clearButtonTapped:" destination="mnY-or-vHl" eventType="touchUpInside" id="OEt-Yr-gxy"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqb-2u-URr">
                                                         <rect key="frame" x="125" y="0.0" width="125" height="45"/>
@@ -478,12 +481,14 @@
                                                             <action selector="numberButtonTapped:" destination="mnY-or-vHl" eventType="touchUpInside" id="pAd-RL-vM9"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSl-FZ-zw9">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSl-FZ-zw9">
                                                         <rect key="frame" x="250" y="0.0" width="125" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="X">
+                                                        <state key="normal" image="delete">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="deleteLastNumberTapped:" destination="mnY-or-vHl" eventType="touchUpInside" id="WlZ-QK-q7D"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -545,8 +550,6 @@
                         <outlet property="actualPriceValue" destination="Xyl-8V-KWb" id="X6K-pc-HA9"/>
                         <outlet property="addButton" destination="Van-bF-lkU" id="8Ai-L7-pJV"/>
                         <outlet property="addValueTextField" destination="MiQ-Qk-t2G" id="y5G-Ob-ASy"/>
-                        <outlet property="cbutton" destination="oy7-iP-pSu" id="w6q-od-7si"/>
-                        <outlet property="deleteButton" destination="LSl-FZ-zw9" id="rkA-AP-ZkC"/>
                         <outlet property="tableView" destination="RiS-PU-1DN" id="BPm-FQ-sBv"/>
                         <outletCollection property="numberButton" destination="Hhw-bI-nxL" collectionClass="NSMutableArray" id="MeT-Pm-izc"/>
                         <outletCollection property="numberButton" destination="Dce-Uf-HLB" collectionClass="NSMutableArray" id="HU5-Sm-mwL"/>
@@ -719,6 +722,7 @@
         <image name="addIcon" width="48" height="48"/>
         <image name="compare" width="25" height="25"/>
         <image name="compare_selected" width="25" height="25"/>
+        <image name="delete" width="50" height="50"/>
         <image name="portfolio" width="25" height="25"/>
         <image name="portfolio_selected" width="25" height="25"/>
         <image name="stock" width="25" height="25"/>

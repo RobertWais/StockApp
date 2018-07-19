@@ -16,7 +16,18 @@ class PortfolioDetailViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var cbutton: UIButton!
     
+    @IBAction func clearButtonTapped(_ sender: UIButton) {
+        addValueTextField.text = nil
+    }
+    
+
+    @IBAction func deleteLastNumberTapped(_ sender: UIButton) {
+        if (addValueTextField.text?.count)! > 0 {
+        addValueTextField.text?.removeLast()
+        }
+    }
     @IBAction func numberButtonTapped(_ sender: UIButton) {
+        
         
         updateTextField(number: "\(sender.tag)")
     }
@@ -41,7 +52,11 @@ class PortfolioDetailViewController: UIViewController {
         tableView.dataSource = self
         addValueTextField.isUserInteractionEnabled = false
         setButtons()
+        
     }
+    
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,12 +77,13 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     }
     
     func updateTextField(number: String) {
-        
+        if (addValueTextField.text?.count)! <= 4 {
         if addValueTextField.text == "0" {
             addValueTextField.text = nil
             addValueTextField.text = (addValueTextField.text ?? "") + number
         } else {
             addValueTextField.text = (addValueTextField.text ?? "") + number
+        }
         }
     }
     
@@ -105,7 +121,6 @@ extension PortfolioDetailViewController: UITableViewDataSource {
 
 
 extension PortfolioDetailViewController {
-    
     func setButtons() {
         let borderColor = UIColor.lightGray.cgColor
         let borderWidth = 0.5
