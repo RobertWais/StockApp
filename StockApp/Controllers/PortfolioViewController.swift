@@ -16,6 +16,7 @@ class PortfolioViewController: UIViewController {
     
     var portfolios = [Portfolio]()
     var stockPrices = [String: Double]()
+    var lookedUp = Set<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +32,8 @@ class PortfolioViewController: UIViewController {
         
         portfolios = CoreDataHelper.retrievePortfolio()
         updateValues()
-//
-//        let item = CoreDataHelper.newPortfolio()
-//        item.amount = 3
-//        item.ticker = "AAPL"
-//        item.name = "APPLE"
-//        item.value = 200
-//        CoreDataHelper.savePortfolio()
+
+        
 //        StockData.getDailyStocks(symbol: "AAPL") { (data) in
 //            print("Current value: \(data[data.count-1].high)")
 //        }
@@ -50,15 +46,22 @@ class PortfolioViewController: UIViewController {
     
     func updateValues (){
         for index in 0..<portfolios.count {
-            StockData.getDailyStocks(symbol: portfolios[index].ticker!) { (data) in
-                if data.count==0{
-                    print("NULL - Fix")
-                }else{
-                    self.stockPrices[self.portfolios[index].name!] = (Double(data[data.count-1].close)!)
-                    self.tableView.reloadData()
-                    
+            if lookedUp.contains(portfolios[index].ticker!) {
+            }else{
+                lookedUp.insert(portfolios[index].ticker!)
+                delay(Double(index*2))  //Here you put time you want to delay
+                {
+                    StockData.getDailyStocks(symbol: self.portfolios[index].ticker!) { (data) in
+                        if data.count != 0 {
+                            self.stockPrices[self.portfolios[index].ticker!] = (Double(data[data.count-1].close)!)
+                            self.tableView.reloadData()
+                            
+                        }
+                    }
                 }
             }
+            
+            
         }
     }
     @objc func addTapped() {
@@ -78,6 +81,11 @@ extension PortfolioViewController: UITableViewDelegate {
 
 extension PortfolioViewController: UITableViewDataSource {
     
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -88,13 +96,13 @@ extension PortfolioViewController: UITableViewDataSource {
     
     //    TODO: DATA FROM API, Switch statement
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let name = portfolios[indexPath.row].name else {
+        guard let name = portfolios[indexPath.row].ticker else {
             fatalError()
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell
         cell.stockTitle.text = portfolios[indexPath.row].name
-        if let stock = stockPrices[portfolios[indexPath.row].name!] {
+        if let stock = stockPrices[portfolios[indexPath.row].ticker!] {
             if let dub = stockPrices[name]{
                 cell.stockPrice.text = "$\(dub)"
                 
@@ -105,7 +113,7 @@ extension PortfolioViewController: UITableViewDataSource {
 
                 }
             }
-            cell.stockValue.text =  "$\(stockPrices[portfolios[indexPath.row].name!]!*Double(portfolios[indexPath.row].amount))"
+            cell.stockValue.text =  "$\(stockPrices[portfolios[indexPath.row].ticker!]!*Double(portfolios[indexPath.row].amount))"
         }else{
             cell.stockPrice.text = "Loading.."
             cell.stockValue.text = "Calculating"
