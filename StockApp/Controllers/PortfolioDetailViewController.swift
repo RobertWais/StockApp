@@ -12,6 +12,19 @@ class PortfolioDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var numberOneButton: UIButton!
+    @IBOutlet weak var numberTwoButton: UIButton!
+    @IBOutlet weak var numberThreeButton: UIButton!
+    @IBOutlet weak var numberFourButton: UIButton!
+    @IBOutlet weak var numberFiveButton: UIButton!
+    @IBOutlet weak var numberSixButton: UIButton!
+    @IBOutlet weak var numberSevenButton: UIButton!
+    @IBOutlet weak var numberEightButton: UIButton!
+    @IBOutlet weak var numberNineButton: UIButton!
+    @IBOutlet weak var numberZeroButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var cbutton: UIButton!
+    
     @IBOutlet weak var addValueTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var actualPriceValue: UILabel!
@@ -31,7 +44,8 @@ class PortfolioDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "Add New Portfolio"
         tableView.dataSource = self
-        addValueTextField.becomeFirstResponder()
+        addValueTextField.isUserInteractionEnabled = false
+        setButtons()
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,5 +95,38 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Choose Stock"
+    }
+}
+
+
+extension PortfolioDetailViewController {
+    
+    func setButtons() {
+        let borderColor = UIColor.lightGray.cgColor
+        let borderWidth = 0.5
+        numberOneButton.layer.borderWidth = CGFloat(borderWidth)
+        numberOneButton.layer.borderColor = borderColor
+        numberTwoButton.layer.borderWidth = CGFloat(borderWidth)
+        numberTwoButton.layer.borderColor = borderColor
+        numberThreeButton.layer.borderWidth = CGFloat(borderWidth)
+        numberThreeButton.layer.borderColor = borderColor
+        numberFourButton.layer.borderWidth = CGFloat(borderWidth)
+        numberFourButton.layer.borderColor = borderColor
+        numberFiveButton.layer.borderWidth = CGFloat(borderWidth)
+        numberFiveButton.layer.borderColor = borderColor
+        numberSixButton.layer.borderWidth = CGFloat(borderWidth)
+        numberSixButton.layer.borderColor = borderColor
+        numberSevenButton.layer.borderWidth = CGFloat(borderWidth)
+        numberSevenButton.layer.borderColor = borderColor
+        numberEightButton.layer.borderWidth = CGFloat(borderWidth)
+        numberEightButton.layer.borderColor = borderColor
+        numberNineButton.layer.borderWidth = CGFloat(borderWidth)
+        numberNineButton.layer.borderColor = borderColor
+        numberZeroButton.layer.borderWidth = CGFloat(borderWidth)
+        numberZeroButton.layer.borderColor = borderColor
+        deleteButton.layer.borderWidth = CGFloat(borderWidth)
+        deleteButton.layer.borderColor = borderColor
+        cbutton.layer.borderWidth = CGFloat(borderWidth)
+        cbutton.layer.borderColor = borderColor
     }
 }
