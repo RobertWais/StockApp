@@ -45,11 +45,12 @@ class PortfolioViewController: UIViewController {
     }
     
     func updateValues (){
+        var count = 0
         for index in 0..<portfolios.count {
             if lookedUp.contains(portfolios[index].ticker!) {
             }else{
                 lookedUp.insert(portfolios[index].ticker!)
-                delay(Double(index*2))  //Here you put time you want to delay
+                delay(Double(count*2))  //Here you put time you want to delay
                 {
                     StockData.getDailyStocks(symbol: self.portfolios[index].ticker!) { (data) in
                         if data.count != 0 {
@@ -59,6 +60,7 @@ class PortfolioViewController: UIViewController {
                         }
                     }
                 }
+                count += 1
             }
             
             
