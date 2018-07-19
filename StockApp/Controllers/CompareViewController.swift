@@ -46,9 +46,16 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             for index in (data.count - 30) ..< data.count {
                 self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
             }
-            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "DataSet 1")
+            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
             self.chartView.data = LineChartData(dataSet: set1)
-            
+            var highAndLow = self.getHighLow(entries: data)
+            self.chartView.leftAxis.axisMaximum = Double(highAndLow.0 + 50)
+            self.chartView.leftAxis.axisMinimum = Double(highAndLow.1 - 50)
+            set1.circleRadius = 2
+            set1.valueColors = [UIColor.white]
+            set1.lineWidth = 2
+            self.chartView.xAxis.axisLineWidth = 0
+            self.chartView.animate(xAxisDuration: 3)
         }
         
         // IMPLEMENT STOCK NAME & TICKER
@@ -64,7 +71,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         
         // x-axis limit line
         let llXAxis = ChartLimitLine(limit: 10, label: "Index 10")
-        llXAxis.lineWidth = 4
+        // llXAxis.lineWidth = 4
         llXAxis.lineDashLengths = [10, 10, 0]
         llXAxis.labelPosition = .rightBottom
         llXAxis.valueFont = .systemFont(ofSize: 10)
@@ -76,6 +83,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         
         //chartView.xAxis.gridLineDashLengths = [10, 10]
         //chartView.xAxis.gridLineDashPhase = 0
+        chartView.xAxis.drawLabelsEnabled = false
         
         //UPPER AND LOWER BOUND LINES
         
@@ -96,8 +104,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         leftAxis.removeAllLimitLines()
         //leftAxis.addLimitLine(ll1)
         //leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = 400
-        leftAxis.axisMinimum = 0
+        
+        
         
         //leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.drawLimitLinesBehindDataEnabled = true
@@ -106,7 +114,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         
         chartView.legend.form = .line
         
-        chartView.animate(xAxisDuration: 2.5)
+        //chartView.animate(xAxisDuration: 3)
         
         // DESTROY GRID LINES
         leftAxis.drawGridLinesEnabled = false
@@ -155,8 +163,8 @@ extension CompareViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
-            cell.firstCompatitor.text = "$ 1,2 mil"
-            cell.secondCompatitor.text = "$ 1,1 mil"
+            cell.firstCompatitor.text = "$242.93"
+            cell.secondCompatitor.text = "$141.58"
             return cell
         }
     }
