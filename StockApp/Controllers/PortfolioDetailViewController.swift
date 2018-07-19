@@ -12,19 +12,14 @@ class PortfolioDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var numberOneButton: UIButton!
-    @IBOutlet weak var numberTwoButton: UIButton!
-    @IBOutlet weak var numberThreeButton: UIButton!
-    @IBOutlet weak var numberFourButton: UIButton!
-    @IBOutlet weak var numberFiveButton: UIButton!
-    @IBOutlet weak var numberSixButton: UIButton!
-    @IBOutlet weak var numberSevenButton: UIButton!
-    @IBOutlet weak var numberEightButton: UIButton!
-    @IBOutlet weak var numberNineButton: UIButton!
-    @IBOutlet weak var numberZeroButton: UIButton!
+    @IBOutlet var numberButton: [UIButton]!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var cbutton: UIButton!
     
+    @IBAction func numberButtonTapped(_ sender: UIButton) {
+        
+        updateTextField(number: "\(sender.tag)")
+    }
     @IBOutlet weak var addValueTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var actualPriceValue: UILabel!
@@ -66,6 +61,16 @@ extension PortfolioDetailViewController: UITableViewDataSource {
         }
     }
     
+    func updateTextField(number: String) {
+        
+        if addValueTextField.text == "0" {
+            addValueTextField.text = nil
+            addValueTextField.text = (addValueTextField.text ?? "") + number
+        } else {
+            addValueTextField.text = (addValueTextField.text ?? "") + number
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
         if indexPath.section == 0 {
@@ -104,29 +109,9 @@ extension PortfolioDetailViewController {
     func setButtons() {
         let borderColor = UIColor.lightGray.cgColor
         let borderWidth = 0.5
-        numberOneButton.layer.borderWidth = CGFloat(borderWidth)
-        numberOneButton.layer.borderColor = borderColor
-        numberTwoButton.layer.borderWidth = CGFloat(borderWidth)
-        numberTwoButton.layer.borderColor = borderColor
-        numberThreeButton.layer.borderWidth = CGFloat(borderWidth)
-        numberThreeButton.layer.borderColor = borderColor
-        numberFourButton.layer.borderWidth = CGFloat(borderWidth)
-        numberFourButton.layer.borderColor = borderColor
-        numberFiveButton.layer.borderWidth = CGFloat(borderWidth)
-        numberFiveButton.layer.borderColor = borderColor
-        numberSixButton.layer.borderWidth = CGFloat(borderWidth)
-        numberSixButton.layer.borderColor = borderColor
-        numberSevenButton.layer.borderWidth = CGFloat(borderWidth)
-        numberSevenButton.layer.borderColor = borderColor
-        numberEightButton.layer.borderWidth = CGFloat(borderWidth)
-        numberEightButton.layer.borderColor = borderColor
-        numberNineButton.layer.borderWidth = CGFloat(borderWidth)
-        numberNineButton.layer.borderColor = borderColor
-        numberZeroButton.layer.borderWidth = CGFloat(borderWidth)
-        numberZeroButton.layer.borderColor = borderColor
-        deleteButton.layer.borderWidth = CGFloat(borderWidth)
-        deleteButton.layer.borderColor = borderColor
-        cbutton.layer.borderWidth = CGFloat(borderWidth)
-        cbutton.layer.borderColor = borderColor
+        for button in numberButton {
+            button.layer.borderColor = borderColor
+            button.layer.borderWidth = CGFloat(borderWidth)
+        }
     }
 }
