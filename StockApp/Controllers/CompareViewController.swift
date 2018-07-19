@@ -30,6 +30,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.barStyle = .black
         }
+        navigationController?.navigationBar.tintColor = .white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -42,10 +43,12 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
             print("\(data.count)")
             
+            
             var count = data.count
             for index in (data.count - 30) ..< data.count {
                 self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
             }
+
             let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
             self.chartView.data = LineChartData(dataSet: set1)
             var highAndLow = self.getHighLow(entries: data)
@@ -58,9 +61,10 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             self.chartView.animate(xAxisDuration: 3)
         }
         
+       
         // IMPLEMENT STOCK NAME & TICKER
         self.title = "\(indyCompany.title)"
-        
+        self.chartView.data = LineChartData()
         
         chartView.delegate = self
         
