@@ -33,6 +33,8 @@ struct Constants {
         static let region = "&region=US&lang=en-US"
         
         
+        //Daily
+        //https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=15min&outputsize=compact&apikey=Y0FL3ZP4752EYZ9O
         //converter newsFinance \(ticker) region
 //        https://feeds.finance.yahoo.com/rss/2.0/headline?s=ticker(s)&region=US&lang=en-US
         //Function is called to get the correct URL for Alamofire
@@ -52,13 +54,18 @@ struct Constants {
         
     }
     static func getData(timeSlot: String,symbol: String)->(String){
-        let returnString = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=\(symbol)&outputsize=100&apikey=\(APICall.APIKey)"
+        let returnString = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=\(symbol)&outputsize=compact&apikey=\(APICall.APIKey)"
+        return returnString
+    }
+    
+    static func getDaily(symbol: String)->(String){
+        
+    let returnString = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=15min&outputsize=compact&apikey=\(APICall.APIKey)"
         return returnString
     }
     
     static func getNewsString(symbol: String)->(String){
         let returnString = "\(APICall.converter)\(APICall.newsFinance)\(symbol)\(APICall.region)"
-        print("Return String: \(returnString)")
         return returnString
     }
     

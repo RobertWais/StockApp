@@ -56,7 +56,30 @@ struct StockData {
                 newsData.append(temp)
             }
             completion(newsData)
-            //print("result: \(result)")
+        }
+    }
+    
+    static func getDailyStocks(symbol: String, completion: @escaping ([Entry])->()){
+        Alamofire.request(Constants.getDaily(symbol: symbol)).validate().responseJSON { (data) in
+            let result = data.result.value as! [String: Any]
+            var dailyData = [Entry]()
+            
+            guard let dict = result["Time Series (15min)"] as? [String: Any] else {
+                print("Could not retrieve dict in getDailystocks")
+                completion([Entry]())
+                return
+            }
+            for dic in dict {
+                guard let date = stringToDateDaily(string: dic.key) else {
+                    return
+                }
+                    guard let tempValue = dic.value as? [String: Any] else{
+                        return
+                }
+                dailyData.append(Entry(dict: tempValue, timeStamp: date))
+            }
+            completion(Entry.getSorted(array: dailyData))
+            
         }
     }
     
@@ -64,9 +87,16 @@ struct StockData {
 }
 
 extension StockData {
+    
     static func stringToDate(string: String )->(Date?){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd"
+        let date = dateFormatter.date(from: string)
+        return date
+    }
+    static func stringToDateDaily(string: String )->(Date?){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
         let date = dateFormatter.date(from: string)
         return date
     }
