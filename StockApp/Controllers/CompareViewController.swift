@@ -18,10 +18,6 @@ class CompareViewController: UIViewController, ChartViewDelegate {
     @IBOutlet var chartView: LineChartView!
     @IBOutlet  var tableViewDetails: UITableView!
 
-   
-   
-    
-    
     var chartDataEntry = [ChartDataEntry]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,21 +157,30 @@ extension CompareViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
-              return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
-            cell.firstCompatitor.text = "$242.93"
-            cell.secondCompatitor.text = "$141.58"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
+            cell.titleLabel.text = "Loading Title..."
+            cell.descriptionLabel.text = "Loading Description..."
             return cell
+            //        } else {
+            //            let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
+            ////            cell.firstCompatitor.text = "$242.93"
+            ////            cell.secondCompatitor.text = "$141.58"
+            //            return cell
+            //        }
         }
     }
 }
 
 extension CompareViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 44
+        } else {
+            return 100
+        }
+    }
 }
 
 extension CompareViewController {
@@ -183,7 +188,7 @@ extension CompareViewController {
     func getHighLow(entries: [Entry])->(Int,Int){
         var high:Double = 0
         var low:Double = 0
-         for index in (entries.count - 30) ..< entries.count {
+        for index in (entries.count - 30) ..< entries.count {
             if let number = Double(entries[index].high){
                 if  number > high {
                     high = number
