@@ -102,10 +102,11 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         updateValues()
         tableView.reloadData()
     }
-    
     func updateValues (){
         var count = 0
+        var fail = 0
         for index in 0..<portfolios.count {
+            fail = 0
             if lookedUp.contains(portfolios[index].ticker!) {
             }else{
                 delay(Double(count*2))  //Here you put time you want to delay
@@ -116,11 +117,16 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
                             self.stockPrices[self.portfolios[index].ticker!] = (Double(data[data.count-1].close)!)
                             self.tableView.reloadData()
                         }else{
+                            fail = 1
                             self.presentAlert()
                         }
                     }
                 }
-                count += 1 
+                
+                count += 1
+            }
+            if fail == 1 {
+                break
             }
         }
         
