@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import Charts
 
-class PortfolioViewController: UIViewController {
+class PortfolioViewController: UIViewController, ChartViewDelegate {
     
     let addNavigationItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var pieChartView: PieChartView!
+    
     var portfolios = [Portfolio]()
+     var pieChartDataEntry = [PieChartDataEntry]()
     var stockPrices = [String: Double]()
     var lookedUp = Set<String>()
+    let compNames:[String] = ["Apple","Tesla","Microsoft","Amazon"]
+    let values: [Double] = [25.6,25.0,25.0,24.4]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,46 @@ class PortfolioViewController: UIViewController {
 //            navigationItem.rightBarButtonItem = addNavigationItem
 //            navigationItem.rightBarButtonItem?.image = UIImage(named: "addIcon")
 //            navigationItem.rightBarButtonItem?.tintColor = .white
+            
+            //GET DATA FOR CHART
+            for index in 0 ..< values.count {
+                self.pieChartDataEntry.append(PieChartDataEntry(value: values[index], label: compNames[index]))
+            }
+            
+            
+            let set1 = PieChartDataSet(values: self.pieChartDataEntry, label: "")
+            set1.colors = ChartColorTemplates.vordiplom()
+            
+            //GENERATE CHART ON SCREEN
+            self.pieChartView.data = PieChartData(dataSet: set1)
+            self.pieChartView.data?.setValueTextColor(UIColor.black)
+            
+            //FORMAT NUMBERS INTO PERCENTAGES
+            let pFormatter = NumberFormatter()
+            pFormatter.numberStyle = .percent
+            pFormatter.maximumFractionDigits = 1
+            pFormatter.multiplier = 1
+            pFormatter.percentSymbol = " %"
+            self.pieChartView.data?.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+            
+            //LEGEND ATTRIBUTES
+            let l = self.pieChartView.legend
+            l.horizontalAlignment = .right
+            l.verticalAlignment = .top
+            l.orientation = .vertical
+            l.xEntrySpace = 7
+            l.yEntrySpace = 3
+            l.yOffset = 16
+            
+            //ANIMATION
+            pieChartView.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
+            //let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "Charts\nby Daniel Cohen Gindi")
+            //self.pieChartView.centerAttributedText = centerText
+            
+            //GET RID OF DESCRIPTION
+            self.pieChartView.chartDescription?.text = ""
+            //self.pieChartView.
+            
         }
         
         
