@@ -43,8 +43,8 @@ struct StockData {
     }
     
     //Returns Array of News
-    static func stockNews(completion: @escaping ([News])->()) {
-        Alamofire.request(Constants.getNewsString(symbol: "AAPL")).validate().responseJSON { (data) in
+    static func stockNews(symbol: String, completion: @escaping ([News])->()) {
+        Alamofire.request(Constants.getNewsString(symbol: symbol)).validate().responseJSON { (data) in
             let result = data.result.value as! [String: Any]
             var newsData = [News]()
             guard let items = result["items"] as? Array<Dictionary<String,Any>> else {
