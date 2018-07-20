@@ -13,16 +13,15 @@ class CompareViewController: UIViewController, ChartViewDelegate {
 
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var selectedIndexPath = -1
+    var news = [News]()
     var company: Company?
     @IBOutlet var chartView: LineChartView!
     @IBOutlet  var tableViewDetails: UITableView!
 
-   
-   
-    
-    
     var chartDataEntry = [ChartDataEntry]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
@@ -38,6 +37,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         guard let indyCompany = company else {
             return
         }
+        
+        loadNews()
     
         
         StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
@@ -123,8 +124,17 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         // DESTROY GRID LINES
         leftAxis.drawGridLinesEnabled = false
         
-        
     }
+    
+    func loadNews() {
+        if let ticker = company?.ticker {
+            StockData.stockNews(symbol: ticker) { (newsData) in
+                self.news = newsData
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         NSLog("chartValueSelected");
@@ -154,28 +164,39 @@ extension CompareViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return news.count
     }
     
-    //    TODO: SWITCH STATEMENT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
-              return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
-            cell.firstCompatitor.text = "$242.93"
-            cell.secondCompatitor.text = "$141.58"
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
+        cell.titleLabel.text = news[indexPath.row].title
+        cell.descriptionLabel.text = news[indexPath.row].description
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "News"
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath.row
+        print(indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+    }
+    
 }
 
 extension CompareViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndexPath {
+            return 350
+        } else {
+        return 100
+    }
+    }
 }
 
 extension CompareViewController {
@@ -183,7 +204,7 @@ extension CompareViewController {
     func getHighLow(entries: [Entry])->(Int,Int){
         var high:Double = 0
         var low:Double = 0
-         for index in (entries.count - 30) ..< entries.count {
+        for index in (entries.count - 30) ..< entries.count {
             if let number = Double(entries[index].high){
                 if  number > high {
                     high = number
