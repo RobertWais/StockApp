@@ -12,9 +12,10 @@ import Charts
 class CompareViewController: UIViewController, ChartViewDelegate {
 
     
+    @IBOutlet weak var loadWheel: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-   
-    
+    var selectedIndexPath = -1
+    var news = [News]()
     var company: Company?
     var entry: Entry?
     var highHigh = 0.0
@@ -27,14 +28,11 @@ class CompareViewController: UIViewController, ChartViewDelegate {
     @IBOutlet var chartView: LineChartView!
     @IBOutlet  var tableViewDetails: UITableView!
 
-   
-   
-    
-    
     var chartDataEntry = [ChartDataEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .automatic
@@ -44,12 +42,198 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        self.loadWheel.hidesWhenStopped = true
         
+
+        
+        loadNews()
+    
+        getData()
+        
+        
+     //   let ll1 = ChartLimitLine(limit: 230, label: "Upper Bound at $\(self.highHigh)")
+     //   let ll2 = ChartLimitLine(limit: 190, label: "Lower Bound at $\(self.lowLow)")
+        ll1?.lineColor = UIColor.green
+        
+        // IMPLEMENT STOCK NAME & TICKER
+//        self.title = "\(indyCompany.title)"
+        self.chartView.data = LineChartData()
+        chartView.delegate = self
+        
+        chartView.chartDescription?.enabled = false
+        chartView.chartDescription?.text = "Last 30 days"
+        chartView.dragEnabled = true
+        chartView.setScaleEnabled(true)
+        chartView.pinchZoomEnabled = true
+       
+        // x-axis limit line
+        //ACHTUNG
+        //let llXAxis = ChartLimitLine(limit: highestValueInSet, label: "Index 10")
+        //llXAxis.lineWidth = 4
+        //llXAxis.lineDashLengths = [10, 10, 0]
+        //llXAxis.labelPosition = .rightBottom
+        //llXAxis.valueFont = .systemFont(ofSize: 10)
+        
+        //DESTROY GRID
+        chartView.xAxis.drawGridLinesEnabled = false
+        
+        //GRID LINES
+        
+        //chartView.xAxis.gridLineDashLengths = [10, 10]
+        //chartView.xAxis.gridLineDashPhase = 0
+        chartView.xAxis.drawLabelsEnabled = false
+        
+        
+        //leftAxis.gridLineDashLengths = [5, 5]
+        
+        chartView.rightAxis.enabled = false
+        
+        chartView.legend.form = .line
+        
+        //chartView.animate(xAxisDuration: 3)
+
+    }
+    
+    func loadNews() {
+        if let ticker = company?.ticker {
+            StockData.stockNews(symbol: ticker) { (newsData) in
+                self.news = newsData
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        NSLog("chartValueSelected");
+    }
+    
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        NSLog("chartValueNothingSelected");
+    }
+    
+    func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        
+    }
+    
+    func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        
+    }
+    
+    //UPPER AND LOWER BOUND LINES
+    
+    //DEFINING HIGHEST AND LOWEST VALUES IN DATA SET
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+}
+extension CompareViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
+        cell.titleLabel.text = news[indexPath.row].title
+        cell.descriptionLabel.text = news[indexPath.row].description
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "News"
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if selectedIndexPath == indexPath.row {
+            selectedIndexPath = -1
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }else{
+            selectedIndexPath = indexPath.row
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }
+        
+//        var otherCells = tableView
+//        for index in 0..<otherCells!.count {
+//            var tempCell = otherCells![index]
+//            if indexPath == tempCell {
+//                otherCells?.remove(at: index)
+//            }
+//        }
+//        tableView.reloadRows(at: otherCells!, with: UITableViewRowAnimation.none)
+    }
+    
+}
+
+extension CompareViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == selectedIndexPath {
+            return 350
+        } else {
+            return 100
+        }
+    }
+}
+
+extension CompareViewController {
+    //Get (high, low)
+    func getHighLow(entries: [Entry])->(Int,Int){
+        var high:Double = 0
+        var low:Double = 0
+        for index in (entries.count - 30) ..< entries.count {
+            if let number = Double(entries[index].high){
+                if  number > high {
+                    high = number
+                }
+                if low == 0 {
+                    low = number
+                }else if number < low {
+                    low = number
+                }
+            }
+        }
+        
+        return (Int(high),Int(low))
+    }
+    
+    func presentAlert(){
+        let alert = UIAlertController(title: "Error",
+                                      message: "To Many API Calls in the last minute",
+                                      preferredStyle: .alert)
+        let submitAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) -> Void in
+            self.getData()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
+            
+            
+        })
+        alert.addAction(cancel)
+        alert.addAction(submitAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func getData(){
+        loadWheel.startAnimating()
         guard let indyCompany = company else {
             return
         }
-        
-        StockData.getStockTime(timeSlot: Constants.APICall.dailySlot, symbol: (indyCompany.ticker)) { (data) in
+        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
+            self.loadWheel.stopAnimating()
+            
+            if data.count<1{
+                self.presentAlert()
+                return
+            }
             print("\(data.count)")
             
             
@@ -57,7 +241,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             for index in (data.count - 30) ..< data.count {
                 self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
             }
-
+                                                                                                       
             let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
             self.chartView.data = LineChartData(dataSet: set1)
             var highAndLow = self.getHighLow(entries: data)
@@ -95,125 +279,6 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             leftAxis.addLimitLine(ll1)
             leftAxis.addLimitLine(ll2)
         }
-        
-     //   let ll1 = ChartLimitLine(limit: 230, label: "Upper Bound at $\(self.highHigh)")
-     //   let ll2 = ChartLimitLine(limit: 190, label: "Lower Bound at $\(self.lowLow)")
-        ll1?.lineColor = UIColor.green
-        
-        // IMPLEMENT STOCK NAME & TICKER
-        self.title = "\(indyCompany.title)"
-        self.chartView.data = LineChartData()
-        chartView.delegate = self
-        
-        chartView.chartDescription?.enabled = false
-        chartView.chartDescription?.text = "Last 30 days"
-        chartView.dragEnabled = true
-        chartView.setScaleEnabled(true)
-        chartView.pinchZoomEnabled = true
-       
-        // x-axis limit line
-        //ACHTUNG
-        //let llXAxis = ChartLimitLine(limit: highestValueInSet, label: "Index 10")
-        //llXAxis.lineWidth = 4
-        //llXAxis.lineDashLengths = [10, 10, 0]
-        //llXAxis.labelPosition = .rightBottom
-        //llXAxis.valueFont = .systemFont(ofSize: 10)
-        
-        //DESTROY GRID
-        chartView.xAxis.drawGridLinesEnabled = false
-        
-        //GRID LINES
-        
-        //chartView.xAxis.gridLineDashLengths = [10, 10]
-        //chartView.xAxis.gridLineDashPhase = 0
-        chartView.xAxis.drawLabelsEnabled = false
-        
-        
-        //leftAxis.gridLineDashLengths = [5, 5]
-        
-        chartView.rightAxis.enabled = false
-        
-        chartView.legend.form = .line
-        
-        //chartView.animate(xAxisDuration: 3)
-      
-    }
-    
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        NSLog("chartValueSelected");
-    }
-    
-    func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        NSLog("chartValueNothingSelected");
-    }
-    
-    func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
-        
-    }
-    
-    func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
-        
-    }
-    
-    //UPPER AND LOWER BOUND LINES
-    
-    //DEFINING HIGHEST AND LOWEST VALUES IN DATA SET
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-}
-extension CompareViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    //    TODO: SWITCH STATEMENT
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
-              return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ComparePriceTableViewCell") as! ComparePriceTableViewCell
-            cell.firstCompatitor.text = "$242.93"
-            cell.secondCompatitor.text = "$141.58"
-            return cell
-        }
-    }
-}
-
-extension CompareViewController: UITableViewDelegate {
-    
-}
-
-extension CompareViewController {
-    //Get (high, low)
-    func getHighLow(entries: [Entry])->(Int,Int){
-        var high:Double = 0
-        var low:Double = 0
-         for index in (entries.count - 30) ..< entries.count {
-            if let number = Double(entries[index].high){
-                if  number > high {
-                    high = number
-                }
-                if low == 0 {
-                    low = number
-                }else if number < low {
-                    low = number
-                }
-            }
-        }
-        
-        return (Int(high),Int(low))
     }
 }
 

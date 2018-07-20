@@ -11,14 +11,8 @@ import UIKit
 //TODO: COMPLETE THIS CONTROLLER BY DESIGN (HINT: COMPAREVIEWCONTROLLER), FIX CONSTRAINTS FOR STACKVIEW - CHECK THE VIEW ON iPHONE SE, 8 PLUS,...
 class ComparePriceTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var firstCompatitor: UILabel!
-    @IBOutlet weak var secondCompatitor: UILabel!
     override func awakeFromNib() {
-        priceLabel.text = "Price"
-        //        TODO: Color update
-        firstCompatitor.textColor = .blue
-        secondCompatitor.textColor = .blue
+ 
         super.awakeFromNib()
     }
 

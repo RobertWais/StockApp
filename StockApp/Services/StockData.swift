@@ -23,6 +23,7 @@ struct StockData {
             
             guard let dict = result["Weekly Time Series"] as? [String: Any] else {
                 print("Could not retrieve timestamp")
+                completion([])
                 return
             }
             
@@ -43,9 +44,12 @@ struct StockData {
     }
     
     //Returns Array of News
-    static func stockNews(completion: @escaping ([News])->()) {
-        Alamofire.request(Constants.getNewsString(symbol: "AAPL")).validate().responseJSON { (data) in
-            let result = data.result.value as! [String: Any]
+    static func stockNews(symbol: String, completion: @escaping ([News])->()) {
+        Alamofire.request(Constants.getNewsString(symbol: symbol)).validate().responseJSON { (data) in
+            guard let result = data.result.value as? [String: Any] else {
+                
+                return
+            }
             var newsData = [News]()
             guard let items = result["items"] as? Array<Dictionary<String,Any>> else {
                 print("Error finding news")
@@ -65,7 +69,7 @@ struct StockData {
             var dailyData = [Entry]()
             
             guard let dict = result["Time Series (15min)"] as? [String: Any] else {
-                print("Could not retrieve dict in getDailystocks")
+                print("Error \(result)")
                 completion([Entry]())
                 return
             }

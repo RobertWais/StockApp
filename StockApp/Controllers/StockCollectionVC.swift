@@ -119,7 +119,6 @@ class StockCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
         self.performSegue(withIdentifier: "toDetails", sender: self)
         return true
     }
- 
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
