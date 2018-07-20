@@ -47,7 +47,7 @@ struct StockData {
     static func stockNews(symbol: String, completion: @escaping ([News])->()) {
         Alamofire.request(Constants.getNewsString(symbol: symbol)).validate().responseJSON { (data) in
             guard let result = data.result.value as? [String: Any] else {
-                
+                print("Error \(data.error?.localizedDescription)")
                 return
             }
             var newsData = [News]()

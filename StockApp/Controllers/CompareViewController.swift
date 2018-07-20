@@ -238,7 +238,6 @@ extension CompareViewController {
         StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
             self.loadWheel.stopAnimating()
             
-            print("Data: \(data)")
             if data.count<1{
                 self.presentAlert()
                 return
