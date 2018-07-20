@@ -44,6 +44,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.tableFooterView = UIView()
         self.loadWheel.hidesWhenStopped = true
         
+        self.title = company?.title
+        
 
         
         loadNews()
