@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sxa-qS-Qwr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sxa-qS-Qwr">
+
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -124,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lE-E8-3Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776.8" y="347.67616191904051"/>
+            <point key="canvasLocation" x="2652" y="-318"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="NRu-OM-OLX">
@@ -706,12 +707,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TBR-67-ymq" kind="relationship" relationship="rootViewController" id="p0C-NS-D2B"/>
+                        <segue destination="dr3-si-gko" kind="relationship" relationship="rootViewController" id="Rwl-BM-FLg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mv-5G-S0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="837.60000000000002" y="347.67616191904051"/>
+        </scene>
+        <!--Compare-->
+        <scene sceneID="zvz-6d-WLQ">
+            <objects>
+                <viewController id="dr3-si-gko" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZh-Ko-C0h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-pa-h7P">
+                                <rect key="frame" x="53" y="372" width="268.66666666666669" height="68.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare Stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXI-w4-Qbe">
+                                        <rect key="frame" x="0.0" y="0.0" width="268.66666666666669" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm8-4N-UHb">
+                                        <rect key="frame" x="78.333333333333343" y="48" width="112" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cpf-pa-h7P" firstAttribute="centerX" secondItem="GaI-D6-7vM" secondAttribute="centerX" id="ezK-w9-r3Q"/>
+                            <constraint firstItem="cpf-pa-h7P" firstAttribute="centerY" secondItem="GaI-D6-7vM" secondAttribute="centerY" constant="-2.3333333333333712" id="gW3-7N-Z07"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GaI-D6-7vM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compare" id="hEy-fk-7mP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bv3-dw-PF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777" y="347"/>
         </scene>
         <!--Portfolio-->
         <scene sceneID="Ii3-Zn-xHf">
@@ -744,7 +784,4 @@
         <image name="stock" width="25" height="25"/>
         <image name="stock_selected" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wrW-SC-OU8"/>
-    </inferredMetricsTieBreakers>
 </document>
