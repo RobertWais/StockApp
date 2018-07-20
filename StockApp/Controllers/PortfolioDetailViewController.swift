@@ -119,7 +119,7 @@ extension PortfolioDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
         var tempCompany = Constants.testData.testData[indexPath.row]
         cell.cellNameLbl.text = (tempCompany.ticker)
-        cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .none
         
         return cell
     }
@@ -147,10 +147,11 @@ extension PortfolioDetailViewController: UITableViewDelegate {
                 tableView.allowsSelection = true
                 self.actualPriceValue.text = "\(data[data.count-1].high)"
                 tableView.reloadData()
-            }else{
+            }else {
                 //renable cell touchiing
                 tableView.allowsSelection=true
                 let cell = tableView.cellForRow(at: indexPath) as! ChooseStockTableViewCell
+                cell.accessoryType = .checkmark
                 var tempCompany = Constants.testData.testData[indexPath.row]
                 cell.cellNameLbl.text = "\(tempCompany.ticker) (Tap to Retry -- API Call Limit Reached)"
             }

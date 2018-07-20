@@ -83,7 +83,6 @@ struct StockData {
         }
     }
     
-    
 }
 
 extension StockData {

@@ -704,7 +704,7 @@
         <!--Compare-->
         <scene sceneID="zvz-6d-WLQ">
             <objects>
-                <viewController id="dr3-si-gko" sceneMemberID="viewController">
+                <viewController id="dr3-si-gko" customClass="StockDetailViewController" customModule="StockApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZh-Ko-C0h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
