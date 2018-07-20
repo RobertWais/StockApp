@@ -53,7 +53,13 @@ struct Constants {
                             Company(image: UIImage(named:"disneyIcon")!, title: "Walt Disney", ticker: "DIS"),
                             Company(image: UIImage(named:"teslaIcon")!, title: "Tesla", ticker: "TSLA"),
                             Company(image: UIImage(named:"facebookIcon")!, title: "Facebook", ticker: "FB"),
-                            Company(image: UIImage(named:"verizonIcon")!, title: "Verizon", ticker: "VZ")]
+                            Company(image: UIImage(named:"verizonIcon")!, title: "Verizon", ticker: "VZ"),
+                            Company(image: UIImage(named:"snapchatIcon")!, title: "Snapchat", ticker: "SNAP"),
+                            Company(image: UIImage(named:"twitterIcon")!, title: "Twitter", ticker: "TWTR"),
+                            Company(image: UIImage(named:"goproIcon")!, title: "GoPro", ticker: "GPRO"),
+                            Company(image: UIImage(named:"bankofamericaIcon")!, title: "Bank of America", ticker: "BAC"),
+                            Company(image: UIImage(named:"spotifyIcon")!, title: "Spotify", ticker: "SPOT"),
+                            Company(image: UIImage(named:"walmartIcon")!, title: "Walmart", ticker: "WMT")]
         
     }
     static func getData(timeSlot: String,symbol: String)->(String){
@@ -68,7 +74,8 @@ struct Constants {
     }
     
     static func getNewsString(symbol: String)->(String){
-        let returnString = "\(APICall.converter)\(APICall.newsFinance)\(symbol)\(APICall.region)"
+        let returnString = "\(APICall.converter)\(APICall.newsFinance)\(symbol)\(APICall.region)&api_key=kmyjwu5n3fnwwkvzwgbpk3asu7hubuyv0hjavx2n"
+        print("Return string \(returnString)")
         return returnString
     }
     
