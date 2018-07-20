@@ -65,7 +65,7 @@ struct StockData {
             var dailyData = [Entry]()
             
             guard let dict = result["Time Series (15min)"] as? [String: Any] else {
-                print("Could not retrieve dict in getDailystocks")
+                print("Error \(result)")
                 completion([Entry]())
                 return
             }

@@ -12,6 +12,8 @@ class PortfolioDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var name = ""
+    
     @IBOutlet var numberButton: [UIButton]!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var cbutton: UIButton!
@@ -35,9 +37,37 @@ class PortfolioDetailViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var actualPriceValue: UILabel!
     @IBAction func addToPortfolioButtonTapped(_ sender: UIButton) {
+        guard let amountText = addValueTextField.text else {
+            print("no text")
+            return
+        }
+        guard let textPrice = actualPriceValue.text else {
+            print("no price text")
+            return
+        }
+        guard let price = Double(textPrice) else {
+            print("No price")
+            return
+        }
+        guard let amount = Int32(amountText) else {
+            print("No amount")
+            return
+        }
+        let newPort = CoreDataHelper.newPortfolio()
+        newPort.amount = amount
+        newPort.ticker = name
+        newPort.value = price
+        newPort.name = name
+        CoreDataHelper.savePortfolio()
+        self.performSegue(withIdentifier: "unwindToDetails", sender: self)
         print("Button pressed")
         self.view.endEditing(true)
+        //
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        print("YASSSS")
     }
     
     override func viewDidLoad() {
@@ -50,6 +80,7 @@ class PortfolioDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "Add New Portfolio"
         tableView.dataSource = self
+        tableView.delegate = self
         addValueTextField.isUserInteractionEnabled = false
         setButtons()
         
@@ -69,11 +100,7 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 3
-        } else {
-            return 2
-        }
+        return Constants.testData.testData.count
     }
     
     func updateTextField(number: String) {
@@ -90,36 +117,47 @@ extension PortfolioDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
-        if indexPath.section == 0 {
-            switch indexPath.row {
-        case 0:
-            cell.textLabel?.text = "Amazon"
-        case 1:
-            cell.textLabel?.text = "Apple"
-        case 2:
-            cell.textLabel?.text = "Google"
-        default:
-            print("OUT OF INDEXPATH")
-        }
-            cell.accessoryType = .disclosureIndicator
-        } else {
-            switch indexPath.row {
-            case 0:
-                cell.textLabel?.text = "Actual price"
-            case 1:
-                cell.textLabel?.text = "Portfolio"
-            default:
-                print("OUT OF INDEXPATH")
-            }
-        }
+        var tempCompany = Constants.testData.testData[indexPath.row]
+        cell.cellNameLbl.text = (tempCompany.ticker)
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Choose Stock"
     }
 }
 
+
+extension PortfolioDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Lets the user know a cell is being loaded"
+        let cell = tableView.cellForRow(at: indexPath) as! ChooseStockTableViewCell
+        var tempCompany = Constants.testData.testData[indexPath.row]
+        cell.cellNameLbl.text = "\(tempCompany.ticker) (Loading..)"
+        
+        //disable cell touching
+        tableView.allowsSelection=false
+        StockData.getDailyStocks(symbol: Constants.testData.testData[indexPath.row].ticker) { (data) in
+            if data.count > 1{
+                self.name = Constants.testData.testData[indexPath.row].ticker
+                tableView.allowsSelection = true
+                self.actualPriceValue.text = "\(data[data.count-1].high)"
+                tableView.reloadData()
+            }else{
+                //renable cell touchiing
+                tableView.allowsSelection=true
+                let cell = tableView.cellForRow(at: indexPath) as! ChooseStockTableViewCell
+                var tempCompany = Constants.testData.testData[indexPath.row]
+                cell.cellNameLbl.text = "\(tempCompany.ticker) (Tap to Retry -- API Call Limit Reached)"
+            }
+            
+        }
+    }
+}
 
 extension PortfolioDetailViewController {
     func setButtons() {

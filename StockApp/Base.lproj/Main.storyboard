@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sxa-qS-Qwr">
     <device id="retina5_9" orientation="portrait">
+
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -243,7 +246,24 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TZa-lG-5KT" id="Ucy-GL-eXf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-4F-pm7">
+                                                    <rect key="frame" x="20" y="11" width="345" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZCD-4F-pm7" firstAttribute="bottom" secondItem="Ucy-GL-eXf" secondAttribute="bottomMargin" id="43Q-Wg-XYl"/>
+                                                <constraint firstItem="ZCD-4F-pm7" firstAttribute="leading" secondItem="Ucy-GL-eXf" secondAttribute="leadingMargin" constant="5" id="99E-4i-D4R"/>
+                                                <constraint firstItem="ZCD-4F-pm7" firstAttribute="trailing" secondItem="Ucy-GL-eXf" secondAttribute="trailingMargin" constant="5" id="GYQ-Vh-5HI"/>
+                                                <constraint firstItem="ZCD-4F-pm7" firstAttribute="top" secondItem="Ucy-GL-eXf" secondAttribute="topMargin" id="Xj7-uK-LBw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellNameLbl" destination="ZCD-4F-pm7" id="GQ4-vT-TnZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -545,9 +565,11 @@
                         <outletCollection property="numberButton" destination="VDs-A3-5HZ" collectionClass="NSMutableArray" id="uv2-UK-d4k"/>
                         <outletCollection property="numberButton" destination="MjD-MH-b84" collectionClass="NSMutableArray" id="k1q-ra-OHO"/>
                         <outletCollection property="numberButton" destination="eqb-2u-URr" collectionClass="NSMutableArray" id="VSc-qA-zUu"/>
+                        <segue destination="RSX-N7-16i" kind="unwind" identifier="unwindToDetails" unwindAction="unwindWithSegue:" id="5Qs-OV-ayT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnA-my-qbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RSX-N7-16i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2541.5999999999999" y="1036.7316341829087"/>
         </scene>

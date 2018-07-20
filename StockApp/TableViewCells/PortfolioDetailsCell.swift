@@ -1,16 +1,15 @@
 //
-//  ChooseStockTableViewCell.swift
+//  PortfolioDetailsCell.swift
 //  StockApp
 //
-//  Created by Kevin Singh on 7/18/18.
+//  Created by Robert Wais on 7/19/18.
 //  Copyright © 2018 MakeSchoolHackathon. All rights reserved.
 //
 
 import UIKit
 
-class ChooseStockTableViewCell: UITableViewCell {
+class PortfolioDetailsCell: UITableViewCell {
 
-    @IBOutlet weak var cellNameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
