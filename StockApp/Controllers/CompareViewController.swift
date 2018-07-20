@@ -45,15 +45,11 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.tableFooterView = UIView()
         self.loadWheel.hidesWhenStopped = true
         
+        self.title = company?.title
 
-        
         loadNews()
     
         getData()
-        
-        
-     //   let ll1 = ChartLimitLine(limit: 230, label: "Upper Bound at $\(self.highHigh)")
-     //   let ll2 = ChartLimitLine(limit: 190, label: "Lower Bound at $\(self.lowLow)")
         ll1?.lineColor = UIColor.green
         
         // IMPLEMENT STOCK NAME & TICKER
