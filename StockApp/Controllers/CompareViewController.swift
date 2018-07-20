@@ -13,6 +13,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
 
     
     @IBOutlet weak var tableView: UITableView!
+    var selectedIndexPath = -1
     var news = [News]()
     var company: Company?
     @IBOutlet var chartView: LineChartView!
@@ -134,6 +135,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         }
     }
     
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         NSLog("chartValueSelected");
     }
@@ -165,17 +167,11 @@ extension CompareViewController: UITableViewDataSource {
         return news.count
     }
     
-    //    TODO: SWITCH STATEMENT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row == 0 {
-        //            let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlTableViewCell") as! SegmentedControlTableViewCell
-        //            return cell
-        //        } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GraphTableViewCell") as! GraphTableViewCell
         cell.titleLabel.text = news[indexPath.row].title
         cell.descriptionLabel.text = news[indexPath.row].description
         return cell
-        //        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -184,11 +180,22 @@ extension CompareViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath.row
+        print(indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+    }
+    
 }
 
 extension CompareViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        if indexPath.row == selectedIndexPath {
+            return 350
+        } else {
+        return 100
+    }
     }
 }
 

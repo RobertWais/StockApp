@@ -83,9 +83,10 @@ extension PortfolioDetailViewController: UITableViewDataSource {
             addValueTextField.text = (addValueTextField.text ?? "") + number
         } else {
             addValueTextField.text = (addValueTextField.text ?? "") + number
-        }
+            }
         }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.chooseStackTableViewCell) as! ChooseStockTableViewCell
