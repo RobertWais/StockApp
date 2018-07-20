@@ -25,7 +25,7 @@ struct Constants {
     
     struct APICall {
 
-        static let APIKey = "VBDH02Z8DUUGI59X"
+        static let APIKey = "9PKBXZF2YJW3JS9C"
 
         static let stockTimeLine = "here"
         static let dailySlot = "TIME_SERIES_DAILY"
