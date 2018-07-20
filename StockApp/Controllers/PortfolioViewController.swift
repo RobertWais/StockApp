@@ -12,6 +12,8 @@ import Charts
 class PortfolioViewController: UIViewController, ChartViewDelegate {
     
     let addNavigationItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+    let refreshControl = UIRefreshControl()
+
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,6 +32,7 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.barStyle = .black
+
 //            navigationItem.rightBarButtonItem = addNavigationItem
 //            navigationItem.rightBarButtonItem?.image = UIImage(named: "addIcon")
 //            navigationItem.rightBarButtonItem?.tintColor = .white
@@ -73,21 +76,25 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             self.pieChartView.chartDescription?.text = ""
             //self.pieChartView.
             
+
         }
         
+        refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+        refreshControl.tintColor = .white
+        refreshControl.backgroundColor = .clear
+        tableView.refreshControl = refreshControl
         
         portfolios = CoreDataHelper.retrievePortfolio()
         updateValues()
-
-        
-//        StockData.getDailyStocks(symbol: "AAPL") { (data) in
-//            print("Current value: \(data[data.count-1].high)")
-//        }
-        
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
+    }
+    
+    @objc func doSomething(refreshControl: UIRefreshControl) {
+        updateValues()
+        refreshControl.endRefreshing()
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
