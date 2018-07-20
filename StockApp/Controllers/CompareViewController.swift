@@ -11,6 +11,7 @@ import Charts
 
 class CompareViewController: UIViewController, ChartViewDelegate {
 
+    @IBOutlet weak var tapToRetry: UIButton!
     
     @IBOutlet weak var loadWheel: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -88,6 +89,11 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         
         //chartView.animate(xAxisDuration: 3)
 
+    }
+    
+    @IBAction func retryPressed(_ sender: Any) {
+        getData()
+        tapToRetry.isHidden = true
     }
     
     func loadNews() {
@@ -210,6 +216,8 @@ extension CompareViewController {
             self.getData()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
+            
+            self.tapToRetry.isHidden = false
             
             
         })
