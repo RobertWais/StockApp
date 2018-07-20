@@ -11,7 +11,9 @@ import Charts
 
 class CompareViewController: UIViewController, ChartViewDelegate {
 
+    @IBOutlet weak var stockNavigationController: UINavigationItem!
     
+    @IBOutlet weak var compareViewLabel: UINavigationItem!
     @IBOutlet weak var loadWheel: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var selectedIndexPath = -1
@@ -60,7 +62,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         self.chartView.data = LineChartData()
         chartView.delegate = self
         
-        chartView.chartDescription?.enabled = false
+        chartView.chartDescription?.enabled = true
         chartView.chartDescription?.text = "Last 30 days"
         chartView.dragEnabled = true
         chartView.setScaleEnabled(true)
@@ -227,7 +229,7 @@ extension CompareViewController {
         guard let indyCompany = company else {
             return
         }
-        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
+        StockData.getStockTime(timeSlot: Constants.APICall.dailySlot, symbol: (indyCompany.ticker)) { (data) in
             self.loadWheel.stopAnimating()
             
             if data.count<1{
@@ -254,6 +256,7 @@ extension CompareViewController {
             self.chartView.animate(xAxisDuration: 0.5)
             self.highHigh = Double(highAndLow.0)
             self.lowLow = Double(highAndLow.1)
+
             
             let ll1 = ChartLimitLine(limit: self.highHigh, label: "Monthly High $\(self.highHigh)")
             let ll2 = ChartLimitLine(limit: self.lowLow, label: "Monthly Low $\(self.lowLow)")
@@ -278,6 +281,7 @@ extension CompareViewController {
             
             leftAxis.addLimitLine(ll1)
             leftAxis.addLimitLine(ll2)
+            self.stockNavigationController.title = self.company?.title
         }
     }
 }
