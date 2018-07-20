@@ -61,7 +61,7 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             //LEGEND ATTRIBUTES
             let l = self.pieChartView.legend
             l.horizontalAlignment = .right
-            l.verticalAlignment = .top
+            l.verticalAlignment = .bottom
             l.orientation = .vertical
             l.xEntrySpace = 7
             l.yEntrySpace = 3
