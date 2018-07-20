@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Charts
 
-class PortfolioViewController: UIViewController {
+class PortfolioViewController: UIViewController, ChartViewDelegate{
     
     let addNavigationItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var pieChartView: PieChartView!
     
     var portfolios = [Portfolio]()
     var stockPrices = [String: Double]()
     var lookedUp = Set<String>()
+    var labels = [UILabel]()
+   // var totalValueArr = [Double]()
+    //var compNamesArr = [String]()
+    var tempArrNames = [String]()
+    //var sum: Double = 0
+    var pieChartDataEntry = [PieChartDataEntry]()
+    let fakeValues: [Double] = [25.6]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +40,14 @@ class PortfolioViewController: UIViewController {
 //            navigationItem.rightBarButtonItem?.tintColor = .white
         }
         
-        
         portfolios = CoreDataHelper.retrievePortfolio()
         updateValues()
+        
+//        labels.append(stockPriceLabel)
+//        labels.append(numOfStockLabel)
+//        labels.append(totalWorthLabel)
+        
+        print(labels)
 
         
 //        StockData.getDailyStocks(symbol: "AAPL") { (data) in
@@ -50,6 +66,8 @@ class PortfolioViewController: UIViewController {
     }
     
     func updateValues (){
+        //totalValueArr.removeAll()
+        //compNamesArr.removeAll()
         var count = 0
         for index in 0..<portfolios.count {
             if lookedUp.contains(portfolios[index].ticker!) {
@@ -61,10 +79,62 @@ class PortfolioViewController: UIViewController {
                         if data.count != 0 {
                             self.stockPrices[self.portfolios[index].ticker!] = (Double(data[data.count-1].close)!)
                             self.tableView.reloadData()
+                            
+                            //self.totalValueArr.append(self.stockPrices[self.portfolios[index].ticker!]!*Double(self.portfolios[index].amount))
+
+                            self.tempArrNames.append(self.portfolios[index].name!)
+                            //self.compNamesArr.append(self.tempArr.last!)
+                            print(self.tempArrNames)
+                            //print(self.compNamesArr)
+                            //print(self.totalValueArr)
+                            
+                            for vals in 0 ..< self.fakeValues.count {
+                                self.pieChartDataEntry.append(PieChartDataEntry(value: self.fakeValues[vals], label: self.tempArrNames[vals]))
+                                print(self.pieChartDataEntry)
+                            }
+                            
+                            let set1 = PieChartDataSet(values: self.pieChartDataEntry, label: "Hello")
+                            //print(set1)
+                            //set1.colors = ChartColorTemplates.vordiplom()
+                            
+                            //GENERATE CHART ON SCREEN
+                            self.pieChartView.data = PieChartData(dataSet: set1)
+                            //self.pieChartView.data?.setValueTextColor(UIColor.black)
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            //self.sum = self.totalValueArr.reduce(0, +)
+                            
+//                            print(self.sum)
+                            
+                            
                         }
+//                        self.sum = self.totalValueArr.reduce(0, +)
+//                        print(self.sum)
+                       // print(self.totalValueArr)
                     }
                 }
-                count += 1 
+                count += 1
+                //print(self.totalValueArr)
             }
         }
     }
@@ -103,9 +173,12 @@ extension PortfolioViewController: UITableViewDataSource {
         guard let name = portfolios[indexPath.row].ticker else {
             fatalError()
         }
-        
+        //totalValueArr.removeAll()
+        //compNamesArr.removeAll()
         let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioStockTableViewCell") as! PortfolioStockTableViewCell
         cell.stockTitle.text = portfolios[indexPath.row].name
+        //FOR PIE CHART
+        //compNamesArr.append(cell.stockTitle.text!)
         if let stock = stockPrices[portfolios[indexPath.row].ticker!] {
             if let dub = stockPrices[name]{
                 cell.stockPrice.text = "$\(dub)"
@@ -118,11 +191,16 @@ extension PortfolioViewController: UITableViewDataSource {
                 }
             }
             cell.stockValue.text =  "$\(stockPrices[portfolios[indexPath.row].ticker!]!*Double(portfolios[indexPath.row].amount))"
+            
+            //FOR PIE CHART
+            //totalValueArr.append(stockPrices[portfolios[indexPath.row].ticker!]!*Double(portfolios[indexPath.row].amount))
+            
         }else{
             cell.stockPrice.text = "Loading.."
             cell.stockValue.text = "Calculating"
         }
-        
+        //compNamesArr.append(cell.stockTitle.text!)
+        //totalValueArr.append(stockPrices[portfolios[indexPath.row].ticker!]!*Double(portfolios[indexPath.row].amount))
         cell.stockAmount.text = String(describing: portfolios[indexPath.row].amount)
         var priceBoughtAt = portfolios[indexPath.row].value
         return cell

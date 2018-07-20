@@ -40,26 +40,26 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         }
     
         
-        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
-            print("\(data.count)")
-            
-            
-            var count = data.count
-            for index in (data.count - 30) ..< data.count {
-                self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
-            }
-
-            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
-            self.chartView.data = LineChartData(dataSet: set1)
-            var highAndLow = self.getHighLow(entries: data)
-            self.chartView.leftAxis.axisMaximum = Double(highAndLow.0 + 50)
-            self.chartView.leftAxis.axisMinimum = Double(highAndLow.1 - 50)
-            set1.circleRadius = 2
-            set1.valueColors = [UIColor.white]
-            set1.lineWidth = 2
-            self.chartView.xAxis.axisLineWidth = 0
-            self.chartView.animate(xAxisDuration: 3)
-        }
+//        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
+//            print("\(data.count)")
+//
+//
+//            var count = data.count
+//            for index in (data.count - 30) ..< data.count {
+//                self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
+//            }
+//
+//            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
+//            self.chartView.data = LineChartData(dataSet: set1)
+//            var highAndLow = self.getHighLow(entries: data)
+//            self.chartView.leftAxis.axisMaximum = Double(highAndLow.0 + 50)
+//            self.chartView.leftAxis.axisMinimum = Double(highAndLow.1 - 50)
+//            set1.circleRadius = 2
+//            set1.valueColors = [UIColor.white]
+//            set1.lineWidth = 2
+//            self.chartView.xAxis.axisLineWidth = 0
+//            self.chartView.animate(xAxisDuration: 3)
+//        }
         
        
         // IMPLEMENT STOCK NAME & TICKER
