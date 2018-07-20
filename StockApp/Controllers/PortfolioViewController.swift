@@ -47,6 +47,7 @@ class PortfolioViewController: UIViewController {
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
         portfolios = CoreDataHelper.retrievePortfolio()
         updateValues()
+        tableView.reloadData()
     }
     
     func updateValues (){
