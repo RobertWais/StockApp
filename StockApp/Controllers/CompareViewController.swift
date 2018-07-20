@@ -12,6 +12,7 @@ import Charts
 class CompareViewController: UIViewController, ChartViewDelegate {
 
     
+    @IBOutlet weak var loadWheel: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var selectedIndexPath = -1
     var news = [News]()
@@ -21,9 +22,9 @@ class CompareViewController: UIViewController, ChartViewDelegate {
 
     var chartDataEntry = [ChartDataEntry]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .automatic
@@ -33,38 +34,18 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        self.loadWheel.hidesWhenStopped = true
         
-        guard let indyCompany = company else {
-            return
-        }
+        
         
         loadNews()
     
+        getData()
         
-        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
-            print("\(data.count)")
-            
-            
-            var count = data.count
-            for index in (data.count - 30) ..< data.count {
-                self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
-            }
-
-            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
-            self.chartView.data = LineChartData(dataSet: set1)
-            var highAndLow = self.getHighLow(entries: data)
-            self.chartView.leftAxis.axisMaximum = Double(highAndLow.0 + 50)
-            self.chartView.leftAxis.axisMinimum = Double(highAndLow.1 - 50)
-            set1.circleRadius = 2
-            set1.valueColors = [UIColor.white]
-            set1.lineWidth = 2
-            self.chartView.xAxis.axisLineWidth = 0
-            self.chartView.animate(xAxisDuration: 3)
-        }
         
        
         // IMPLEMENT STOCK NAME & TICKER
-        self.title = "\(indyCompany.title)"
+//        self.title = "\(indyCompany.title)"
         self.chartView.data = LineChartData()
         
         chartView.delegate = self
@@ -182,9 +163,23 @@ extension CompareViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath.row
-        print(indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        
+        if selectedIndexPath == indexPath.row {
+            selectedIndexPath = -1
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }else{
+            selectedIndexPath = indexPath.row
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }
+        
+//        var otherCells = tableView
+//        for index in 0..<otherCells!.count {
+//            var tempCell = otherCells![index]
+//            if indexPath == tempCell {
+//                otherCells?.remove(at: index)
+//            }
+//        }
+//        tableView.reloadRows(at: otherCells!, with: UITableViewRowAnimation.none)
     }
     
 }
@@ -194,8 +189,8 @@ extension CompareViewController: UITableViewDelegate {
         if indexPath.row == selectedIndexPath {
             return 350
         } else {
-        return 100
-    }
+            return 100
+        }
     }
 }
 
@@ -217,5 +212,55 @@ extension CompareViewController {
             }
         }
         return (Int(high),Int(low))
+    }
+    
+    func presentAlert(){
+        let alert = UIAlertController(title: "Error",
+                                      message: "To Many API Calls in the last minute",
+                                      preferredStyle: .alert)
+        let submitAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) -> Void in
+            self.getData()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
+            
+            
+        })
+        alert.addAction(cancel)
+        alert.addAction(submitAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func getData(){
+        loadWheel.startAnimating()
+        guard let indyCompany = company else {
+            return
+        }
+        StockData.getStockTime(timeSlot: Constants.APICall.monthlySlot, symbol: (indyCompany.ticker)) { (data) in
+            self.loadWheel.stopAnimating()
+            
+            print("Data: \(data)")
+            if data.count<1{
+                self.presentAlert()
+                return
+            }
+            print("\(data.count)")
+            
+            
+            var count = data.count
+            for index in (data.count - 30) ..< data.count {
+                self.chartDataEntry.append(ChartDataEntry(x: Double(index), y: Double(data[index].high)!))
+            }
+            
+            let set1 = LineChartDataSet(values: self.chartDataEntry, label: "\(indyCompany.title) USD Stock Price")
+            self.chartView.data = LineChartData(dataSet: set1)
+            var highAndLow = self.getHighLow(entries: data)
+            self.chartView.leftAxis.axisMaximum = Double(highAndLow.0 + 50)
+            self.chartView.leftAxis.axisMinimum = Double(highAndLow.1 - 50)
+            set1.circleRadius = 2
+            set1.valueColors = [UIColor.white]
+            set1.lineWidth = 2
+            self.chartView.xAxis.axisLineWidth = 0
+            self.chartView.animate(xAxisDuration: 3)
+        }
     }
 }
