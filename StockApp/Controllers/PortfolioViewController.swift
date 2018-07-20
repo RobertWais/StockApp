@@ -55,19 +55,22 @@ class PortfolioViewController: UIViewController {
         for index in 0..<portfolios.count {
             if lookedUp.contains(portfolios[index].ticker!) {
             }else{
-                lookedUp.insert(portfolios[index].ticker!)
-                delay(Double(index*2))  //Here you put time you want to delay
+                delay(Double(count*2))  //Here you put time you want to delay
                 {
                     StockData.getDailyStocks(symbol: self.portfolios[index].ticker!) { (data) in
                         if data.count != 0 {
+                            self.lookedUp.insert(self.portfolios[index].ticker!)
                             self.stockPrices[self.portfolios[index].ticker!] = (Double(data[data.count-1].close)!)
                             self.tableView.reloadData()
+                        }else{
+                            self.presentAlert()
                         }
                     }
                 }
                 count += 1 
             }
         }
+        
     }
     @objc func addTapped() {
         print("add button tapped")
@@ -147,5 +150,21 @@ extension PortfolioViewController: UITableViewDataSource {
 //            cell.graphImageView.image = UIImage(named: "portfolio_test_graph")
 //            return cell
 //        }
+    }
+    
+    
+    func presentAlert(){
+        let alert = UIAlertController(title: "Error",
+                                      message: "To Many API Calls in the last minute",
+                                      preferredStyle: .alert)
+        let submitAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) -> Void in
+            self.updateValues()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
+            
+        })
+        alert.addAction(cancel)
+        alert.addAction(submitAction)
+        present(alert, animated: true, completion: nil)
     }
 }
