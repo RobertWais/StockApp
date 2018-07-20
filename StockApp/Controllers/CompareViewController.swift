@@ -17,12 +17,8 @@ class CompareViewController: UIViewController, ChartViewDelegate {
     var company: Company?
     @IBOutlet var chartView: LineChartView!
     @IBOutlet  var tableViewDetails: UITableView!
-
-   
-   
-    
-    
     var chartDataEntry = [ChartDataEntry]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
@@ -59,6 +55,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             set1.lineWidth = 2
             self.chartView.xAxis.axisLineWidth = 0
             self.chartView.animate(xAxisDuration: 3)
+            
         }
         
        
@@ -75,7 +72,7 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         
         // x-axis limit line
         let llXAxis = ChartLimitLine(limit: 10, label: "Index 10")
-        // llXAxis.lineWidth = 4
+        // llXAxis.lineWidth = 4=
         llXAxis.lineDashLengths = [10, 10, 0]
         llXAxis.labelPosition = .rightBottom
         llXAxis.valueFont = .systemFont(ofSize: 10)
